@@ -1,0 +1,26 @@
+{
+  "name": "qa-service",
+  "version": "1.0.0",
+  "description": "A service dedicated to serving the Questions & Answers widget.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/SDC-Sedeco/QA-Service.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SDC-Sedeco/QA-Service/issues"
+  },
+  "homepage": "https://github.com/SDC-Sedeco/QA-Service#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "jest": "^27.2.5"
+  }
+}
