@@ -2,7 +2,8 @@ module.exports = {
     "env": {
         "browser": true,
         "es6": true,
-        "node": true
+        "node": true,
+        "jest": true
     },
     "extends": [
         "eslint:recommended",
@@ -21,20 +22,5 @@ module.exports = {
     },
     "plugins": [
         "react"
-    ],
-    "rules": {
-    },
-    {
-     "overrides": [
-    {
-        "files": [
-            "**/*.spec.js",
-            "**/*.spec.jsx"
-        ],
-        "env": {
-        "jest": true
-        }
-      }
     ]
-  }
 };

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server/index.js",
     "server-dev": "npx nodemon server/index.js",
-    "lint": "eslint **/*.js --ignore-pattern node_modules/",
+    "lint": "eslint --ext js --ignore-pattern node_modules/",
     "test": "jest --coverage --verbose --watch"
   },
   "repository": {
