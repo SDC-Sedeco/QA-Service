@@ -4,7 +4,7 @@
   "description": "A service dedicated to serving the Questions & Answers widget.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage --watch"
   },
   "repository": {
     "type": "git",
