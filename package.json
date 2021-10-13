@@ -4,10 +4,9 @@
   "description": "A service dedicated to serving the Questions & Answers widget.",
   "main": "index.js",
   "scripts": {
-    "start": "node server/index.js",
-    "server-dev": "npx nodemon server/index.js",
+    "start": "npx nodemon server/index.js",
     "lint": "eslint --ext js --ignore-pattern node_modules/",
-    "test": "jest --coverage --verbose --watch"
+    "test": "jest --coverage --verbose"
   },
   "repository": {
     "type": "git",
