@@ -39,10 +39,10 @@ const questionSchema = new Schema({
   }
 })
 
-const questionsResultsSchema = {
+const questionsResultsSchema = new Schema ({
   'product_id': Number,
   'results': [questionSchema]
-}
+})
 
 //Child of Questions - Parent referencing
 const answerSchema = new Schema({
