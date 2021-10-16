@@ -9,7 +9,6 @@ const Schema = mongoose.Schema
 //Parent
 const questionSchema = new Schema({
   'question_id': Number,
-  'product_id': Number,
   'question_body': {
     type: String,
     required: true,
@@ -39,6 +38,11 @@ const questionSchema = new Schema({
     ref: 'Answer'
   }
 })
+
+const questionsResultsSchema = {
+  'product_id': Number,
+  'results': [questionSchema]
+}
 
 //Child of Questions - Parent referencing
 const answerSchema = new Schema({
@@ -75,16 +79,19 @@ const answerSchema = new Schema({
   }
 })
 
+
 /**
  * Entity Relationships
  * One question has many answers
  * An answer will belong to a specific question
  */
 
-const Question = mongoose.model('QuestionModel', questionSchema)
-const Answer = mongoose.model('AnswerModel', answerSchema)
+const Question = mongoose.model('Question', questionSchema)
+const Answer = mongoose.model('Answer', answerSchema)
+const QuestionResults = mongoose.model('QuestionResults', questionsResultsSchema)
 
 module.exports = {
   Question,
+  QuestionResults,
   Answer
 }
