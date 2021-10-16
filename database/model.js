@@ -2,15 +2,14 @@ const mongoose = require('mongoose')
 mongoose.connect('mongodb://127.0.0.1:27017/test',
 {useNewUrlParser: true, useUnifiedTopology: true}).
 catch(error => console.log(error))
-
 const db = mongoose.connection
-
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 const Schema = mongoose.Schema
 
 //Parent
 const questionSchema = new Schema({
   'question_id': Number,
+  'product_id': Number,
   'question_body': {
     type: String,
     required: true,
@@ -68,7 +67,7 @@ const answerSchema = new Schema({
     {
       'id':Number,
       'url': String
-    } //
+    }
   ],
   'reported': {
     type: Boolean,
@@ -76,7 +75,11 @@ const answerSchema = new Schema({
   }
 })
 
-//Entity Relationships
+/**
+ * Entity Relationships
+ * One question has many answers
+ * An answer will belong to a specific question
+ */
 
 const Question = mongoose.model('QuestionModel', questionSchema)
 const Answer = mongoose.model('AnswerModel', answerSchema)
