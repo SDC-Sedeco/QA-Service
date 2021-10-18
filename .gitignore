@@ -119,4 +119,4 @@ dist
 .pnp.*
 
 #misc
-.config.js
+config.js
