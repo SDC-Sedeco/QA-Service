@@ -13,13 +13,13 @@ const port = config.port
 const conString = `postgres://${user}:${password}@${host}:${port}/${database}`
 
 //Connect to DB
-const pool = new Pool({
+const db = new Pool({
   connectionString: conString,
 });
 
-pool.connect(function(err) {
+db.connect(function(err) {
   if (err) throw err;
   console.log(`Database connected to ${port}!`)
 });
 
-module.exports = pool;
+module.exports = db;
