@@ -121,3 +121,4 @@ dist
 #misc
 .config.js
 data
+config.json
