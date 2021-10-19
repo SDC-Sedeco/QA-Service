@@ -1,4 +1,5 @@
 const express = require('express')
+const pool = require('../database/db.js')
 
 const app = express()
 const port = 4000
