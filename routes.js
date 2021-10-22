@@ -1,34 +1,34 @@
 const express = require('express')
 const router = express.Router()
-const helpers = require('./database/helpers.js')
+const helper = require('./database/helpers.js')
 
 router.get('/', (req, res) => {
   res.status(200).send('Working')
-})
+});
 
-//GET /qa/questions
-router.get('/qa/questions')
 
-//GET /qa/questions/:question_id/answers
-router.get('/qa/questions:question_id/answers')
+router.get('/qa/questions', helper.getQuestions);
 
-//POST /qa/questions
-router.post('/qa/questions')
 
-//POST /qa/questions/:question_id/answers
-router.post('/qa/questions/:question_id/answers')
+router.get('/qa/questions:question_id/answers', helper.getAnswers);
 
-//PUT /qa/questions/:question_id/helpful
-router.put('/qa/questions/:question_id/helpful')
 
-//PUT /qa/questions/:question_id/report
-router.put('/qa/questions/:question_id/report')
+router.post('/qa/questions', helper.addQuestion)
 
-//PUT /qa/answers/:answer_id/helpful
-router.put('/qa/answers/:answer_id/helpful')
 
-//PUT /qa/answers/:answer_id/report
-router.put('/qa/answers/:answer_id/report')
+router.post('/qa/questions/:question_id/answers', helper.addAnswer)
+
+
+router.put('/qa/questions/:question_id/helpful', helper.markQuestion)
+
+
+router.put('/qa/questions/:question_id/report', helper.reportQuestion)
+
+
+router.put('/qa/answers/:answer_id/helpful', helper.markAnswer)
+
+
+router.put('/qa/answers/:answer_id/report', helper.reportAnswer)
 
 
 module.exports = router;

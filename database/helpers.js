@@ -1,21 +1,71 @@
 const pool = require('./db.js')
+//take care of updates in data
+//identify and remove any duplicate records with transactions
 
 //GET QUESTIONS
-const getQuestions = (request, response ) => {
+const getQuestions = (req, res ) => {
   console.log('Get questions')
-  pool.query('SELECT * FROM questions WHERE id > 0', (err, results) => {
+  pool.query('SELECT * FROM questions', (err, results) => {
     if (err) {
       console.log(err);
     }
     console.log(results.rows);
-    response.status(200).json(results.rows)
+    res.status(200).send(results.rows)
   })
 }
 
+//GET ANSWERS
+const getAnswers = (req, res) => {
+  console.log('Get answers')
+  res.status(200).send('OK')
+}
+
+//ADD QUESTION
+const addQuestion = (req, res) => {
+  console.log('Added question')
+  res.status(201).send('CREATED')
+}
+
+//ADD ANSWER
+const addAnswer = (req, res) => {
+  console.log('Added answer')
+  res.status(201).send('CREATED')
+}
+
+//MARK QUESTION HELPFUL
+const markQuestion = (req, res) => {
+  console.log('Marked question helpful')
+  res.status(204).send('NO CONTENT')
+}
+
+//REPORT QUESTION
+const reportQuestion = (req, res) => {
+  console.log('Reported question')
+  res.status(204).send('NO CONTENT')
+}
+
+//MARK ANSWER HELPFUL
+const markAnswer = (req, res) => {
+  console.log('Marked answer helpful')
+  res.status(204).send('NO CONTENT')
+}
+
+//REPORT ANSWER
+const reportAnswer = (req, res) => {
+  console.log('Reported answer')
+  res.status(204).send('NO CONTENT')
+}
 
 
 module.exports = {
-  getQuestions
+  getQuestions,
+  getAnswers,
+  addQuestion,
+  addAnswer,
+  markQuestion,
+  reportQuestion,
+  markAnswer,
+  reportAnswer
 }
 
 
@@ -24,22 +74,4 @@ module.exports = {
 
 
 
-
-
-
-
-//CREATE QUESTION
-
-//UPDATE question?
-//take care of updates in data
-
-//identify and remove any duplicate records with transactions
-
-
-//GET ANSWERS
-
-//CREATE ANSWER
-
-
-//UPDATE answer?
 
