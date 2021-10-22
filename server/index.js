@@ -1,5 +1,4 @@
 const express = require('express')
-const pool = require('../database/db.js')
 const cors = require('cors')
 
 const app = express()
