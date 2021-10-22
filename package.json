@@ -35,6 +35,7 @@
     "package-lock.json": "^1.0.0",
     "pg": "^8.7.1",
     "pg-copy-streams": "^6.0.2",
+    "pg-cursor": "^2.7.1",
     "update": "^0.7.4"
   },
   "devDependencies": {
