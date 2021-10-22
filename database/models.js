@@ -2,6 +2,30 @@ const pool = require('./db.js')
 
 //GET QUESTIONS
 
+module.exports = {
+  questions: {
+
+  },
+
+  answers: {
+
+  },
+
+  photos: {
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 //CREATE QUESTION
 
