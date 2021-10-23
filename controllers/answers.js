@@ -10,10 +10,14 @@ module.exports ={
   },
 
   helpful: (req, res) => {
-
+    models.answers.helpful(req.params)
+    .then(() => res.status(204).send('No Content'))
+    .catch((err) => res.status(500).send(err))
   },
 
-  reported: (req, res) => {
-
+  report: (req, res) => {
+    models.answers.report(req.params)
+    .then(() => res.status(204).send('No Content'))
+    .catch((err) => res.status(500).send(err))
   }
 }

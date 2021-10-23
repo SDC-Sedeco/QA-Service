@@ -1,4 +1,4 @@
-const {pool} = require('./../database/db.js')
+const db = require('./../database/db.js')
 
 module.exports = {
 
@@ -10,11 +10,25 @@ module.exports = {
 
   },
 
-  helpful:({answer_id}) => {
-
+  helpful:({id}) => {
+    return db.pool.query(
+      `
+      UPDATE answers
+      SET
+      helpful = helpful + 1
+      WHERE
+      id = ${id}`
+    )
   },
 
-  report:({answer_id}) => {
-
+  report:({id}) => {
+    return db.pool.query(
+      `
+      UPDATE answers
+      SET
+      reported = TRUE
+      WHERE
+      id = ${id}`
+    )
   }
 }

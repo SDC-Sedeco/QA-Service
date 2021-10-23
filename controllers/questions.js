@@ -1,9 +1,9 @@
 const models = require('../models')
 
 module.exports = {
-  get: (req, res) => {
+  // get: (req, res) => {
 
-  },
+  // },
 
   post: (req, res) => {
     models.questions.post(req.query)

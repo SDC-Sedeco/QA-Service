@@ -25,10 +25,10 @@ router.put('/qa/questions/:question_id/helpful', controller.questions.helpful);
 router.put('/qa/questions/:question_id/report', controller.questions.report);
 
 
-router.put('/qa/answers/:answer_id/helpful');
+router.put('/qa/answers/:answer_id/helpful', controller.answers.helpful);
 
 
-router.put('/qa/answers/:answer_id/report');
+router.put('/qa/answers/:answer_id/report', controller.answers.report);
 
 
 module.exports = router;

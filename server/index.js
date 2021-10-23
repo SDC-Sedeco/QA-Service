@@ -1,6 +1,5 @@
 const express = require('express')
 const cors = require('cors')
-const db = require('./../database/db.js')
 const router = require('./../routes.js')
 const morgan = require('morgan')
 
