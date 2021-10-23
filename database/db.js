@@ -15,18 +15,7 @@ const config = {
 }
 
 
-const pool = new Pool(config);
+exports.pool = new Pool(config);
 
 
-module.exports = {
-  query: (text, params, callback) => pool.connect((err, client, done) => {
-    if (err) {
-      return console.error('Error getting client', err.stack)
-    }
-    client.query(text, params, (err, result) => {
-      done();
-      callback(err, result);
-    })
-  })
 
-}
