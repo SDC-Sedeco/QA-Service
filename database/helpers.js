@@ -1,18 +1,17 @@
-const pool = require('./db.js')
+const db = require('./db.js')
 //take care of updates in data
 //identify and remove any duplicate records with transactions
 
 //GET QUESTIONS
-const getQuestions = (req, res ) => {
-  console.log('Get questions')
-  pool.query('SELECT * FROM questions', (err, results) => {
+const getQuestions = ({product_id, page = 1, count = 5}) =>
+  db.query('SELECT * FROM questions ', (err, results) => {
     if (err) {
       console.log(err);
     }
     console.log(results.rows);
     res.status(200).send(results.rows)
   })
-}
+
 
 //GET ANSWERS
 const getAnswers = (req, res) => {

@@ -1,20 +1,33 @@
 const {Pool} = require('pg')
-const config = require('./../config.json')
+require('dotenv').config()
 
-const host = config.host
-const user = config.user
-const pw = config.pw
-const db = config.db
-const port = config.port
-const conString = `postgres://${user}:${pw}@${host}:${port}/${db}`
+const config = {
+  host: process.env.PGHOST,
+  user: process.env.PGUSER,
+  pw: process.env.PGPASSWORD,
+  db: process.env.PGDATABASE,
+  port: process.env.PGPORT,
+  ssl: {
+    rejectUnauthorized: false
+  },
+  pool: {
+    max: 10,
+    min: 0,
+    idleTimeoutMillis: 3000
+  }
+}
 
-const pool = new Pool({
-  connectionString: conString,
-});
 
-pool.connect((err) => {
-  if (err) throw err;
-  console.log(`Database connected on port ${port}`);
-});
+const pool = new Pool(config);
 
-module.exports = pool;
+module.exports = {
+  query: (text, params, callback) => pool.connect((err, client, done) => {
+    if (err) {
+      return console.error('Error getting client', err.stack)
+    }
+    client.query(text, params, (err, result) => {
+      done();
+      callback(err, result);
+    })
+  })
+}
