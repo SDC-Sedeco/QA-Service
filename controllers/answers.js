@@ -6,7 +6,10 @@ module.exports ={
   },
 
   post: (req, res) => {
-
+    models.answers.post(req.params, req.query)
+    .then(({rows}) => models.photos.post(rows[0], req.query))
+    .then(() => res.status(201).send('Created'))
+    .catch((err) => res.status(400).send(err))
   },
 
   helpful: (req, res) => {

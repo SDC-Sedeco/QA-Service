@@ -7,7 +7,31 @@ module.exports = {
   },
 
   post:({question_id}, {body, name, email, date}) => {
-
+    return db.pool.query(
+      `
+      INSERT INTO answers
+      (
+        question_id,
+        body,
+        date,
+        answerer_name,
+        answerer_email,
+        reported,
+        helpful
+      )
+      VALUES
+      (
+        ${question_id},
+        ${body},
+        ${date},
+        ${name},
+        ${email},
+        FALSE,
+        0
+      )
+      RETURNING id
+      `
+    )
   },
 
   helpful:({id}) => {
