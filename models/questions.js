@@ -1,17 +1,17 @@
 const db = require('./../database/db.js')
 
 module.exports = {
-  get:({product_id, page = 1, count = 5}) => {
-    return db.pool.query(
-      `
-      SELECT
-      id,
-      body,
-      date,
-      asker_name
-      helpful`
-    )
-  },
+  // get:({product_id, page = 1, count = 5}) => {
+  //   return db.pool.query(
+  //     `
+  //     SELECT
+  //     id,
+  //     body,
+  //     date,
+  //     asker_name
+  //     helpful`
+  //   )
+  // },
 
   post:({product_id, body, name, email, date}) => {
     return db.pool.query(

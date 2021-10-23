@@ -16,7 +16,7 @@ router.get('/qa/questions:question_id/answers');
 router.post('/qa/questions', controller.questions.post);
 
 
-router.post('/qa/questions/:question_id/answers');
+router.post('/qa/questions/:question_id/answers', controller.answers.post);
 
 
 router.put('/qa/questions/:question_id/helpful', controller.questions.helpful);
