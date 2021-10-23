@@ -2,9 +2,27 @@ const { pool } = require('./../database/db.js')
 
 module.exports = {
 
-  // get:({question_id}, {page = 1, count = 5}) => {
-
-  // },
+  get:({question_id}, {page = 1, count = 5}) => {
+    return pool.query(
+      `
+      SELECT
+      id,
+      body,
+      date,
+      answerer_name,
+      helpful
+      //array of photos
+      FROM answers
+      WHERE idx_question_id = ${question_id}
+      AND
+      NOT reported
+      LIMIT
+      ${count}
+      OFFSET
+      ${(page - 1) * count}
+    `
+    )
+  },
 
   post:({question_id}, {body, name, email, date}) => {
     return pool.query(
