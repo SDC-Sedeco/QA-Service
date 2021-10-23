@@ -1,4 +1,4 @@
-const db = require('./../database/db.js')
+const { pool } = require('./../database/db.js')
 
 module.exports = {
   // get:({product_id, page = 1, count = 5}) => {
@@ -14,7 +14,7 @@ module.exports = {
   // },
 
   post:({product_id, body, name, email, date}) => {
-    return db.pool.query(
+    return pool.query(
       `
       INSERT
       INTO questions
@@ -41,7 +41,7 @@ module.exports = {
   },
 
   helpful:({id}) => {
-    return db.pool.query(
+    return pool.query(
       `
       UPDATE questions
       SET
@@ -52,12 +52,12 @@ module.exports = {
   },
 
   report:({id}) => {
-    return db.pool.query(
-      `UPDATE questions
-        SET
-        reported = TRUE
-        WHERE
-        id = ${id}`
+    return pool.query(
+    `UPDATE questions
+      SET
+      reported = TRUE
+      WHERE
+      id = ${id}`,
     )
   }
 }
