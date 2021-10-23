@@ -7,11 +7,8 @@ const config = {
   pw: process.env.PGPASSWORD,
   db: process.env.PGDATABASE,
   port: process.env.PGPORT,
-  ssl: {
-    rejectUnauthorized: false
-  },
   pool: {
-    max: 10,
+    max: 25,
     min: 0,
     idleTimeoutMillis: 3000
   }
@@ -19,6 +16,7 @@ const config = {
 
 
 const pool = new Pool(config);
+
 
 module.exports = {
   query: (text, params, callback) => pool.connect((err, client, done) => {
@@ -30,4 +28,5 @@ module.exports = {
       callback(err, result);
     })
   })
+
 }
