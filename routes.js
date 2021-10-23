@@ -13,7 +13,7 @@ router.get('/qa/questions');
 router.get('/qa/questions:question_id/answers');
 
 
-router.post('/qa/questions')
+router.post('/qa/questions', controller.questions.post);
 
 
 router.post('/qa/questions/:question_id/answers');

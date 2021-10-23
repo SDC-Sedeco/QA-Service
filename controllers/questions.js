@@ -1,13 +1,15 @@
 const models = require('../models')
 
 module.exports = {
-  // get: (req, res) => {
+  get: (req, res) => {
 
-  // },
+  },
 
-  // post: (req, res) => {
-
-  // },
+  post: (req, res) => {
+    models.questions.post(req.query)
+    .then(() => res.status(201).send('Created'))
+    .catch((err) => res.status(400).send(err))
+  },
 
   helpful: (req, res) => {
     models.questions.helpful(req.params)
