@@ -56,41 +56,36 @@ module.exports = {
       )
   },
 
-  post:({product_id, body, name, email, date}) => {
-    return pool.query(
+  post:({body, asker_name, asker_email, product_id}) => {
+   return pool.query(
       `
       INSERT
       INTO questions
       (
         product_id,
         body,
-        date,
         asker_name,
-        asker_email,
-        reported,
-        helpful
+        asker_email
       )
       VALUES
       (
         ${product_id},
         ${body},
-        ${date},
-        ${name},
-        ${email},
-        FALSE,
-        0
-      )`
+        ${asker_name},
+        ${asker_email}
+        )
+      `,
     )
   },
 
-  helpful:({id}) => {
+  helpful:({question_id}) => {
     return pool.query(
       `
       UPDATE questions
       SET
       helpful = helpful + 1
       WHERE
-      id = ${id}`
+      id = ${question_id}`
     )
   },
 

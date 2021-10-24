@@ -52,25 +52,25 @@ module.exports = {
     )
   },
 
-  helpful:({id}) => {
+  helpful:({answer_id}) => {
     return pool.query(
       `
       UPDATE answers
       SET
       helpful = helpful + 1
       WHERE
-      id = ${id}`
+      id = ${answer_id}`
     )
   },
 
-  report:({id}) => {
+  report:({answer_id}) => {
     return pool.query(
       `
       UPDATE answers
       SET
       reported = TRUE
       WHERE
-      id = ${id}`
+      id = ${answer_id}`
     )
   }
 }

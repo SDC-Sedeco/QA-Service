@@ -8,14 +8,15 @@ module.exports = {
   },
 
   post: (req, res) => {
-    models.questions.post(req.params)
-    .then(response => res.status(201).json(response))
+    console.log(typeof req.body.product_id)
+    models.questions.post(req.body)
+    .then(() => res.sendStatus(201))
     .catch((err) => res.status(500).send(err))
   },
 
   helpful: (req, res) => {
     models.questions.helpful(req.params)
-    .then(() => res.status(204).send('No Content'))
+    .then(() => res.sendStatus(204))
     .catch((err) => res.status(500).send(err))
   },
 
