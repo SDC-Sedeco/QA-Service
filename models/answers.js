@@ -24,28 +24,22 @@ module.exports = {
     )
   },
 
-  post:({question_id}, {body, name, email, date}) => {
+  post:({question_id}, {body, name, email}) => {
     return pool.query(
       `
       INSERT INTO answers
       (
         question_id,
         body,
-        date,
         answerer_name,
-        answerer_email,
-        reported,
-        helpful
+        answerer_email
       )
       VALUES
       (
         ${question_id},
         ${body},
-        ${date},
         ${name},
-        ${email},
-        FALSE,
-        0
+        ${email}
       )
       RETURNING id
       `
