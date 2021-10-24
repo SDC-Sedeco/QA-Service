@@ -5,41 +5,41 @@ module.exports = {
     return pool.query(
       `
       SELECT
-      id,
-      body,
-      date,
-      asker_name,
-      helpful
-      CASE
-        WHEN MAX(answers.id) IS NOT NULL THEN
-        COALESCE(
-          json_agg(
-            json_build_object(
-              'id', answers.id,
-              'body', answers.body,
-              'date', answers.date,
-              'answerer_name', answers.answerer_name,
-              'helpful', answers.helpful,
-              'photos',
-              COALESCE(
-                (
-                  SELECT
-                  json_agg(photos.url)
-                  FROM photos
-                  WHERE photos.answer_id = answers.id
-                ),
-                json_build_array()
+      questions.id AS question_id,
+      questions.body AS question_body,
+      questions.date AS question_date,
+      questions.asker_name,
+      questions.reported,
+      questions.helpful AS question_helpfulness,
+      (CASE
+        WHEN string_agg(answers.id::varchar, '-' order by answers.id) IS NOT NULL THEN
+          COALESCE(
+            json_agg(
+              json_build_object(
+                'id', answers.id,
+                'body', answers.body,
+                'date', answers.date,
+                'answerer_name', answers.answerer_name,
+                'helpfulness', answers.helpful,
+                'photos',
+                COALESCE(
+                  (
+                    SELECT
+                    json_agg(photos.url)
+                    FROM photos
+                    WHERE photos.answer_id = answers.id
+                  ),
+                  json_build_array()
+                )
               )
             )
+            FILTER
+            (WHERE answers.reported = FALSE),
+            json_build_array()
           )
-          FILTER
-          (WHERE answers.reported = FALSE),
+        ELSE
           json_build_array()
-        )
-          ELSE
-           json_build_array()
-           END
-           AS answers
+        END) AS answers
            FROM
            questions
            LEFT JOIN
@@ -56,7 +56,8 @@ module.exports = {
       )
   },
 
-  post:({body, asker_name, asker_email, product_id}) => {
+  post:({body, name, email, product_id}) => {
+    console.log(body, name, email, product_id)
    return pool.query(
       `
       INSERT
@@ -70,9 +71,9 @@ module.exports = {
       VALUES
       (
         ${product_id},
-        ${body},
-        ${asker_name},
-        ${asker_email}
+        '${body}',
+        '${name}',
+        '${email}'
         )
       `,
     )

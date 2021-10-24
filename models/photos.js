@@ -1,7 +1,8 @@
 const { pool } = require('./../database/db.js')
 
 module.exports = {
-  post: ({answer_id}, {photos}) => {
+  post: ({id: answer_id}, {photos}) => {
+    console.log(answer_id, photos)
     return pool.query(
       `
       INSERT
