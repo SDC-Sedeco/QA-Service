@@ -7,10 +7,10 @@ router.get('/', (req, res) => {
 });
 
 
-router.get('/qa/questions');
+router.get('/qa/questions', controller.questions.get);
 
 
-router.get('/qa/questions:question_id/answers');
+router.get('/qa/questions:question_id/answers', controller.answers.get);
 
 
 router.post('/qa/questions', controller.questions.post);

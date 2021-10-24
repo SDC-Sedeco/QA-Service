@@ -1,17 +1,60 @@
 const { pool } = require('./../database/db.js')
 
 module.exports = {
-  // get:({product_id, page = 1, count = 5}) => {
-  //   return db.pool.query(
-  //     `
-  //     SELECT
-  //     id,
-  //     body,
-  //     date,
-  //     asker_name
-  //     helpful`
-  //   )
-  // },
+  get:({product_id, page = 1, count = 5}) => {
+    return pool.query(
+      `
+      SELECT
+      id,
+      body,
+      date,
+      asker_name,
+      helpful
+      CASE
+        WHEN MAX(answers.id) IS NOT NULL THEN
+        COALESCE(
+          json_agg(
+            json_build_object(
+              'id', answers.id,
+              'body', answers.body,
+              'date', answers.date,
+              'answerer_name', answers.answerer_name,
+              'helpful', answers.helpful,
+              'photos',
+              COALESCE(
+                (
+                  SELECT
+                  json_agg(photos.url)
+                  FROM photos
+                  WHERE photos.answer_id = answers.id
+                ),
+                json_build_array()
+              )
+            )
+          )
+          FILTER
+          (WHERE answers.reported = FALSE),
+          json_build_array()
+        )
+          ELSE
+           json_build_array()
+           END
+           AS answers
+           FROM
+           questions
+           LEFT JOIN
+           answers
+           ON
+           questions.id = answers.question_id
+           WHERE
+           questions.product_id = ${product_id}
+           AND NOT questions.reported
+           GROUP BY questions.id
+           LIMIT ${count}
+           OFFSET ${(page - 1) * count}
+      `
+      )
+  },
 
   post:({product_id, body, name, email, date}) => {
     return pool.query(
@@ -51,13 +94,13 @@ module.exports = {
     )
   },
 
-  report:({id}) => {
+  report:({question_id}) => {
     return pool.query(
     `UPDATE questions
       SET
       reported = TRUE
       WHERE
-      id = ${id}`,
+      id = ${question_id}`
     )
   }
 }

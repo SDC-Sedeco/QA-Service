@@ -12,6 +12,7 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use('/', router)
+app.use('/qa', router)
 
 
 app.listen(PORT, () => {
