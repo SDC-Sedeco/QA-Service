@@ -22,17 +22,20 @@ Run tests: -npm test
  * eslint ^8.0.0
  * jest ^27.2.5
 
-# APIs
+ # Database
+  Postgres (psql 14.0)
 
-QUESTIONS
-* GET /qa/questions
-* POST /qa/questions
-* PUT /qa/questions/:question_id/helpful
-* PUT /qa/questions/:question_id/report
+ # APIs
 
-ANSWERS
+ QUESTIONS
+ * GET /qa/questions
+ * POST /qa/questions
+ * PUT /qa/questions/:question_id/helpful
+ * PUT /qa/questions/:question_id/report
 
-* GET /qa/questions/:question_id/answers
-* POST /qa/questions/:question_id/answers
-* PUT /qa/answers/:answer_id/helpful
-* PUT /qa/answers/:answer_id/report
+ ANSWERS
+
+ * GET /qa/questions/:question_id/answers
+ * POST /qa/questions/:question_id/answers
+ * PUT /qa/answers/:answer_id/helpful
+ * PUT /qa/answers/:answer_id/report
