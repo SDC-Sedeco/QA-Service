@@ -121,4 +121,3 @@ dist
 #misc
 .config.js
 csv
-.env

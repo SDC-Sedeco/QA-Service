@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npx nodemon server/index.js",
     "lint": "eslint --ext js --ignore-pattern node_modules/",
-    "test": "jest --coverage --verbose"
+    "test": "jest --coverage --verbose --watch"
   },
   "keywords": [
     "node",
@@ -25,7 +25,6 @@
   },
   "homepage": "https://github.com/SDC-Sedeco/QA-Service#readme",
   "dependencies": {
-    "axios": "^0.23.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
@@ -35,7 +34,6 @@
   "devDependencies": {
     "dotenv": "^10.0.0",
     "eslint": "^8.0.0",
-    "eslint-plugin-react": "^7.26.1",
     "jest": "^27.2.5"
   }
 }
