@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npx nodemon server/index.js",
     "lint": "eslint --ext js --ignore-pattern node_modules/",
-    "test": "jest --coverage --verbose --watch"
+    "test": "jest --coverage --verbose"
   },
   "keywords": [
     "node",
