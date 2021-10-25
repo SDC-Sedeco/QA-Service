@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const controller = require('./controllers');
+const controller = require('./server/controllers');
 
 router.get('/', (req, res) => {
   res.status(200).send('Working')
