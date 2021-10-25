@@ -8,18 +8,14 @@ module.exports = {
     .then(({rows}) => {
 
       for (let i = 0; i < rows.length; i++) {
-
         let answerArr = rows[i].answers
 
         let answerObject = answerArr.reduce((answerObj, data) => {
          answerObj[data.id] = data
-        //  console.log('answers', answerObj)
         return answerObj}, {} )
 
         rows[i].answers = answerObject
-
       }
-
       rows.length === 0 ? res.sendStatus(500)
       : res.status(200).send(
         {
