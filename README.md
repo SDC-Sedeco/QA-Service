@@ -10,7 +10,17 @@ Start the server: -npm start
 
 Run tests: -npm test
 
+# Dependencies
+ * express ^4.17.1
+ * nodemon ^2.0.13
+ * cors ^2.8.5
+ * morgan ^1.10.0
+ * node-postgres ^8.7.1
 
+ # devDependencies
+ * dotenv ^10.0.0
+ * eslint ^8.0.0
+ * jest ^27.2.5
 
 # APIs
 
