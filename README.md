@@ -12,7 +12,7 @@ Run tests: -npm test
 
 
 
-APIs for QA-Service
+# APIs
 
 QUESTIONS
 * GET /qa/questions
