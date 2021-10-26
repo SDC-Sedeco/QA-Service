@@ -3,38 +3,35 @@ const { pool } = require('./../../database/db.js')
 module.exports = {
 
   get:({question_id}, {page = 1, count = 5}) => {
-    console.log(question_id, page, count )
     return pool.query(
       `
-
-   SELECT
-   answers.id AS answer_id,
-   answers.body,
-   answers.date,
-   answers.answerer_name,
-   answers.helpful AS helpfulness,
-   (CASE
-     WHEN string_agg(photos.url, '-' order by photos.url) IS NOT NULL THEN
-     COALESCE(
-       json_agg(
-         json_build_object(
-           'id', photos.id,
-           'url', photos.url
-         )
-       )
-     )
-     ELSE
-     json_build_array()
-     END) AS photos
-     FROM answers
-     LEFT JOIN photos
-     ON photos.answer_id = answers.id
-     WHERE NOT answers.reported AND answers.question_id = ${question_id}
-     GROUP BY answers.id
-      LIMIT ${count}
-      OFFSET ${(page - 1) * count}
-    `
-    )
+      SELECT
+      answers.id AS answer_id,
+      answers.body,
+      answers.date,
+      answers.answerer_name,
+      answers.helpful AS helpfulness,
+      (CASE
+        WHEN string_agg(photos.url, '-' order by photos.url) IS NOT NULL THEN
+        COALESCE(
+          json_agg(
+            json_build_object(
+              'id', photos.id,
+              'url', photos.url
+            )
+          )
+        )
+        ELSE
+        json_build_array()
+        END) AS photos
+        FROM answers
+        LEFT JOIN photos
+        ON photos.answer_id = answers.id
+        WHERE NOT answers.reported AND answers.question_id = ${question_id}
+        GROUP BY answers.id
+          LIMIT ${count}
+          OFFSET ${(page - 1) * count}`
+      )
   },
 
   post:({question_id}, {body, name, email}) => {

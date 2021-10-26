@@ -1,18 +1,18 @@
-version: "3.7"
+version: "3.1"
 services:
-  db:
+  postgresql:
     image: postgres
     environment:
-      PGUSER='louisa'
-      PGDATABASE='qa'
-      PGPASSWORD='password'
+      PGUSER:'louisa'
+      PGDATABASE:'qa'
+      PGPASSWORD:'password'
     volumes:
-      - ./pgdata:/var/lib/postgresql
+      - db-data:/var/lib/postgresql/data/
     ports:
       - '5432:5432'
-app:
-  image: web
-    depends_on:
-      - db
-    ports:
-      - "8080:8080"
+# app:
+#   image: web
+#     depends_on:
+#       - db
+#     ports:
+#       - "8080:8080"

@@ -6,7 +6,6 @@ const morgan = require('morgan')
 const app = express()
 const PORT = process.env.PORT || 8080
 
-//Middleware
 app.use(cors())
 app.use(morgan('dev'))
 app.use(express.json())

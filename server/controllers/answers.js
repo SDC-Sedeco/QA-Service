@@ -2,7 +2,6 @@ const models = require('../models')
 
 module.exports ={
   get: (req, res) => {
-    console.log(req.params.question_id, req.query.page, req.query.count)
     models.answers.get(req.params, req.query)
     .then(({rows}) => {
       rows.length === 0 ? res.sendStatus(500)
@@ -17,12 +16,10 @@ module.exports ={
   },
 
   post: (req, res) => {
-    console.log(req.params.question_id)
     const {body, name, email, photos} = req.body
-    console.log(body, name, email, photos)
     models.answers.post(req.params, req.body)
     .then(({rows}) => models.photos.post(rows[0], req.body))
-    .then(() => res.status(201).send('Created'))
+    .then(() => res.sendStatus(201))
     .catch((err) => res.status(400).send(err))
   },
 

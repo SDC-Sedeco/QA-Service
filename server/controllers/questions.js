@@ -2,7 +2,7 @@ const models = require('../models')
 
 module.exports = {
   get: (req, res) => {
-    console.log(req.query.product_id, req.query.page, req.query.count)
+    // console.log(req.query.product_id, req.query.page, req.query.count)
 
     models.questions.get(req.query)
     .then(({rows}) => {
@@ -28,7 +28,6 @@ module.exports = {
 
   post: (req, res) => {
     const {product_id, name, email, body} = req.body;
-    console.log(product_id, name, email, body)
     models.questions.post(req.body)
     .then(() => res.sendStatus(201))
     .catch((err) => res.status(500).send(err))

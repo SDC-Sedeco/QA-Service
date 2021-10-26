@@ -2,7 +2,6 @@ const { pool } = require('./../../database/db.js')
 
 module.exports = {
   post: ({id: answer_id}, {photos}) => {
-    console.log(answer_id, photos)
     return pool.query(
       `
       INSERT
