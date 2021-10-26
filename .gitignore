@@ -121,6 +121,7 @@ dist
 #misc
 .config.js
 csv
+pg-data
 
 #whitelist
 !*.sql

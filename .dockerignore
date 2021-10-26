@@ -4,3 +4,4 @@ docker-compose*.yml
 Dockerfile
 .dist
 node_modules
+pg-data
