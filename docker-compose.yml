@@ -25,15 +25,4 @@ services:
       - "5432:5432"
     volumes:
       - ./pg-data:/var/lib/postgreql/data
-#  # Container to run the API. Build will tell Docker to build the container image from the source.
-#   app:
-#     build: .
-#     command: npm run dev
-#     depends_on:
-#       - postgres
-#     environment:
-#       DATABASE_URL: postgres://louisa:password@postgres:5432/qa
-#       NODE_ENV: development
-#       PORT: 8083
-#     ports:
-#       - "8083:8083"
+#
