@@ -2,4 +2,5 @@
 .git
 docker-compose*.yml
 Dockerfile
+.dist
 node_modules
