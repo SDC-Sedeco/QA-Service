@@ -7,7 +7,7 @@
     "start": "node server/index.js",
     "dev": "npx nodemon server/index.js",
     "lint": "eslint --ext js --ignore-pattern node_modules/",
-    "test": "jest --coverage --verbose"
+    "test": "npx jest --coverage --watchAll"
   },
   "keywords": [
     "node",

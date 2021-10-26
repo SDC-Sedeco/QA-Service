@@ -57,7 +57,6 @@ module.exports = {
   },
 
   post:({body, name, email, product_id}) => {
-    console.log(body, name, email, product_id)
    return pool.query(
       `
       INSERT
