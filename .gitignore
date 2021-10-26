@@ -121,3 +121,7 @@ dist
 #misc
 .config.js
 csv
+
+#whitelist
+!*.sql
+!*.sql/**
