@@ -2,6 +2,7 @@ const models = require('../models')
 
 module.exports = {
   get: (req, res) => {
+    console.log(req.query.product_id, req.query.page, req.query.count)
     models.questions.get(req.query)
     .then(({rows}) => {
 

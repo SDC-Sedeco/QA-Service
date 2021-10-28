@@ -2,6 +2,7 @@ const { pool } = require('./../../database/db.js')
 
 module.exports = {
   get:({product_id, page = 1, count = 5}) => {
+    console.log(product_id, page, count)
     return pool.query(
       `
       SELECT
