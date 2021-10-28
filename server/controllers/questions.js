@@ -27,6 +27,7 @@ module.exports = {
 
   post: (req, res) => {
     const {product_id, name, email, body} = req.body;
+    console.log('Post', product_id)
     models.questions.post(req.body)
     .then(() => res.sendStatus(201))
     .catch((err) => res.status(500).send(err))
