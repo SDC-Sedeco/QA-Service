@@ -1,11 +1,33 @@
 const request = require('supertest')
-const server = require('../server/index.js')
+const app = require('../server/app')
 
+
+
+describe('GET /test', () => {
+  test('Responds with expected JSON', done => {
+    request(app)
+    .get('/api/qa/test')
+     .then(response => {
+       expect(response.statusCode).toBe(200)
+       done()
+     })
+    })
+  })
+
+  // describe("GET /questions", () => {
+  //   it ("Responds with expected JSON", (done) => {
+  //     request(app)
+  //     .get('/api/qa/questions')
+  //     .set('Accept', 'application/json')
+  //     .expect('Content-Type', /json/)
+  //     .expect(200, done);
+  //   })
+  // })
 
 // describe('Post Endpoint', () => {
 //   it('should create a new post', async () => {
-//     const res = await request(app)
-//     .post('/qa/questions')
+//     const res = await request(server)
+//     .post('/api/qa/questions')
 //     .send({
 //       "body": "bacon",
 //       "name": "bacon",
@@ -16,13 +38,3 @@ const server = require('../server/index.js')
 //   })
 // })
 
-describe('TEST', function() {
-  it("Says 'Hi' is 'Working'", function(done) {
-    request(server)
-    .get('/test')
-    .expect('Content-Type', /json/)
-    .expect(200, {
-      Hi: 'Working'
-    }, done)
-  })
-})

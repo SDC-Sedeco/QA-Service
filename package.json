@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/index.js",
-    "dev": "npx nodemon server/index.js",
+    "server-dev": "npx nodemon server/index.js",
     "lint": "eslint --ext js --ignore-pattern node_modules/",
-    "test": "npx jest --coverage --watchAll"
+    "test": "jest --verbose --coverage"
   },
   "keywords": [
     "node",
