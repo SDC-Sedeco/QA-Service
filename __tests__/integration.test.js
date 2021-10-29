@@ -1,6 +1,10 @@
 const request = require('supertest')
 const app = require('../server/app')
-/**DO Test: API Permissions & DB, stubbing, things to check everytime something changes and restarts
+/**
+ * Ensures parts of system works together
+ * Involves communication (e.g network, db)
+ * Might use stubs
+DO Test: API Permissions & DB, stubbing, things to check everytime something changes and restarts
 DON'T Test: HTTP Requests (Whoops), see if you can fetch data models for ORMs
 **/
 
@@ -68,7 +72,16 @@ describe('GET /test', () => {
                 "reported": false,
                 "question_helpfulness": 0,
                 "answers": {}
-            }
+            },
+            {
+              "question_id": 3519055,
+              "question_body": "Waffles",
+              "question_date": "2021-10-29T22:18:35.966Z",
+              "asker_name": "Apple",
+              "reported": false,
+              "question_helpfulness": 0,
+              "answers": {}
+          }
         ]
       }
     )
