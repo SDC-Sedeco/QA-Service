@@ -1,15 +1,11 @@
 const request = require('supertest')
 const app = require('../server/app')
-//API Permissions
-//DB
-//stubs
-//Things to check everytime something changes and restarts
-//dont test HTTP request - whoops
-//ORM - dont test to be sure you can fetch model
+/**DO Test: API Permissions & DB, stubbing, things to check everytime something changes and restarts
+DON'T Test: HTTP Requests (Whoops), see if you can fetch data models for ORMs
+**/
 
 
 //QUESTIONS TESTS//
-
 describe('GET /test', () => {
   test('Responds with expected JSON', async () => {
     const response = await request(app).get('/api/qa/test').send('Working')
@@ -127,7 +123,6 @@ describe('PUT /questions/:question_id/report', () => {
 
 
 //ANSWERS TESTS//
-
 describe('GET /qa/questions/:question_id/answers', () => {
   test('Responds with all JSON answers for current product', async () => {
     const response = await request(app).get('/api/qa/questions/5/answers')

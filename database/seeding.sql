@@ -8,4 +8,6 @@
 
 
   CREATE TEMPORARY TABLE questions LIKE questions
+  CREATE TEMPORARY TABLE answers LIKE answers
+  CREATE TEMPORARY TABLE photos LIKE photos
 
