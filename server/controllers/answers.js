@@ -30,6 +30,7 @@ module.exports ={
   },
 
   report: (req, res) => {
+    console.log('params', req.params)
     models.answers.report(req.params)
     .then(() => res.sendStatus(204))
     .catch((err) => res.status(500).send(err))

@@ -2,11 +2,12 @@ const models = require('../models')
 
 module.exports = {
   get: (req, res) => {
-    console.log(req.query.product_id, req.query.page, req.query.count)
+    console.log('GET POSTED QUESTION', req.query.product_id, req.query.page, req.query.count)
     models.questions.get(req.query)
     .then(({rows}) => {
 
       for (let i = 0; i < rows.length; i++) {
+        console.log('Questions Only', rows[i].question_body)
         let answerArr = rows[i].answers
 
         let answerObject = answerArr.reduce((answerObj, data) => {
@@ -27,7 +28,7 @@ module.exports = {
 
   post: (req, res) => {
     const {product_id, name, email, body} = req.body;
-    console.log('Post', product_id)
+    console.log('Was the Question Posted', product_id, name, email, body)
     models.questions.post(req.body)
     .then(() => res.sendStatus(201))
     .catch((err) => res.status(500).send(err))
