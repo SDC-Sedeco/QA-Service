@@ -24,7 +24,7 @@ describe('test', () => {
     jest.clearAllMocks();
   });
 
-  it ('test', async () => {
+  it ('Should pass', async () => {
     pool.query.mockResolvedValueOnce({rows: [], rowCount: 0});
   })
 })

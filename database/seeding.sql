@@ -6,3 +6,6 @@
 
   INSERT INTO photos (answer_id, url) VALUES (10, UNNEST(ARRAY['1234', '5678']));
 
+
+  CREATE TEMPORARY TABLE questions LIKE questions
+
