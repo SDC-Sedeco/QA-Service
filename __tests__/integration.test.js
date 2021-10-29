@@ -186,6 +186,7 @@ describe('GET /qa/questions/:question_id/answers', () => {
     const response = await request(app).get('/api/qa/questions/500/answers')
     expect(response.statusCode).toBe(500)
   })
+})
 
 
   describe('POST qa/questions/:question_id/answers', () => {
@@ -223,7 +224,7 @@ describe('GET /qa/questions/:question_id/answers', () => {
     })
   })
 
-})
+
 
 
 
