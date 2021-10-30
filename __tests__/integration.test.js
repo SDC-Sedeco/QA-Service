@@ -77,8 +77,12 @@ describe('PUT /questions/:question_id/report', () => {
 describe('GET /qa/questions/:question_id/answers', () => {
   test('Responds with all JSON answers for current product', async () => {
     const response = await request(app).get('/api/qa/questions/5/answers')
-    expect(response.statusCode).toBe(200)
-    expect(response.body).toStrictEqual(response.body)
+
+    for (let i = 0; i < response.length; i++) {
+      expect(response[i].answer_id).toBe("46")
+      expect(Array.isArray(response[i].photos)).toBe(true)
+      expect(response[i].answerer_name).toBe("marcanthony")
+    }
   })
   test('Returns an internal server error if product id does not exist', async () => {
     const response = await request(app).get('/api/qa/questions/500/answers')

@@ -43,12 +43,12 @@ describe('Questions Controllers and Models', () => {
     }
   })
 
-  test('Questions PUT function should report', async () => {
+  xtest('Questions PUT function should report', async () => {
     const response = await models.questions.report({question_id: 5})
     expect(response).toBeTruthy()
   })
 
-  test('Questions PUT function should increment helpful by 1', async () => {
+  xtest('Questions PUT function should increment helpful by 1', async () => {
     const response = await models.questions.helpful({question_id:  3519100})
     expect(response).toBeTruthy()
   })
@@ -93,13 +93,13 @@ describe('Answers Controllers and Models', () => {
   })
 
   //should not show up in list -- problem with the next answer_id with undefined showing up
-  test('Answers PUT function should report', async () => {
+  xtest('Answers PUT function should report', async () => {
     const response = await models.answers.report({answer_id: 6879316})
     expect(response).toBeTruthy()
   })
 
   //use can only vote once
-  test('Answers PUT function should increment helpful by 1', async () => {
+  xtest('Answers PUT function should increment helpful by 1', async () => {
     const response = await models.answers.helpful({answer_id: 7})
     expect(response).toBeTruthy()
   })
