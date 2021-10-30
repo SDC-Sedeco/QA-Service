@@ -33,6 +33,30 @@ SELECT setval('photos_id_seq', MAX(id)) FROM photos;
   ALTER SEQUENCE answers_id_seq RESTART WITH 1000;
   ALTER SEQUENCE photos_id_seq RESTART WITH 1000;
 
+--TEST TABLE
+
+CREATE TABLE IF NOT EXISTS test_answers (
+  id SERIAL PRIMARY KEY,
+  question_id INT NOT NULL,
+  body VARCHAR(1000) NOT NULL,
+  reported BOOLEAN DEFAULT 'f',
+  helpful INT DEFAULT 0,
+  CONSTRAINT fk_question
+  FOREIGN KEY (question_id)
+  REFERENCES questions(id)
+  ON DELETE CASCADE;
+);
+
+CREATE TABLE IF NOT EXISTS test_questions (
+  id SERIAL PRIMARY KEY,
+  product_id INT NOT NULL,
+  body VARCHAR(1000) NOT NULL,
+  reported BOOLEAN DEFAULT 'f',
+  helpful INT DEFAULT 0
+);
+
+--last 5 records
+SELECT * FROM answers ORDER BY id DESC LIMIT 5;
 
   --  SELECT
   --     questions.id AS question_id,

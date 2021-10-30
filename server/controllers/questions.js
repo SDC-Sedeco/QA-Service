@@ -7,7 +7,8 @@ module.exports = {
     .then(({rows}) => {
 
       for (let i = 0; i < rows.length; i++) {
-        console.log('Question id 3', rows[i].question_id, rows[i].question_body, rows[i].reported)
+        // console.log('Question id 3', rows[i].question_id, rows[i].question_body, rows[i].reported)
+        console.log('helpful', rows[i].question_helpfulness)
         let answerArr = rows[i].answers
 
         let answerObject = answerArr.reduce((answerObj, data) => {

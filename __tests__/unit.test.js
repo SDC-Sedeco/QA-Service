@@ -12,17 +12,18 @@ const models = require('./../server/models')
 describe('Questions Controllers and Models', () => {
   test('Questions Get function should return correct data for question 3 for product_id 1', async () => {
     const response = await models.questions.get({product_id: 1})
-      try {for (let i = 0; i < response.length; i++) {
-          expect(response[0].question_id).toBe(3)
-          expect(response[0].question_body).toBe("Does this product run big or small?")
-          expect(response[0].question_date).toBe("2020-12-21T15:31:47.000Z")
-          expect(response[0].asker_name).toBe("jbilas")
-          expect(response[0].reported).toBeFalsey()
-          expect(response[0].question_helpfulness).toBe(8)
+      try {
+          for (let i = 0; i < response.length; i++) {
+            expect(typeof response[i].question_id).toBe("number")
+            expect(typeof response[i].question_body).toBe("string")
+            expect(response[i].question_date instanceof DATE).toBe(true)
+            expect(typeof response[i].asker_name).toBe("string")
+            expect(typeof response[i].reported).toBe("boolean")
+            expect(typeof response[i].question_helpfulness).toBe("number")
+          }
+        } catch (err) {
+          expect(err).toBeNull()
       }
-    } catch (err) {
-      expect(err).toBeNull()
-    }
   })
 
   test('Questions Post function should POST', async () => {
@@ -32,7 +33,14 @@ describe('Questions Controllers and Models', () => {
       email: "apple@gmail.com",
       product_id: 1
     })
-    expect(response).toBeDefined()
+    for (let i = 0; i < response.length; i++) {
+      expect(response[i]).toBe({
+        body: "Waffles",
+        name: "Apple",
+        email: "apple@gmail.com",
+        product_id: 1
+      })
+    }
   })
 
   test('Questions PUT function should report', async () => {
@@ -42,9 +50,7 @@ describe('Questions Controllers and Models', () => {
 
   test('Questions PUT function should increment helpful by 1', async () => {
     const response = await models.questions.helpful({question_id:  3519100})
-    for (let i = 0; i < response.length; i++) {
-      expect(response[i].question_helpfulness).toBe(1)
-    }
+    expect(response).toBeTruthy()
   })
 })
 
@@ -53,29 +59,38 @@ describe('Questions Controllers and Models', () => {
 describe('Answers Controllers and Models', () => {
   test('Answers Get function should return correct data types', async () => {
     const response = await models.answers.get({question_id: 1}, {page: 1, count: 5})
-      try {for (let i = 0; i < response.length; i++) {
-          expect(typeof response[i].answer_id).toBe("number")
-          expect(typeof response[i].body).toBe("string")
-          expect(typeof response[i].date).toBe("string")
-          expect(response[i].date instanceof Date).toBe(true)
-          expect(typeof response[i].answerer_name).toBe("string")
-          expect(typeof response[i].helpfulness).toBe("number")
-          expect(Array.isArray(response[i].photos)).toBe(true)
+      try {
+          for (let i = 0; i < response.length; i++) {
+            expect(typeof response[i].answer_id).toBe("number")
+            expect(typeof response[i].body).toBe("string")
+            expect(typeof response[i].date).toBe("string")
+            expect(response[i].date instanceof Date).toBe(true)
+            expect(typeof response[i].answerer_name).toBe("string")
+            expect(typeof response[i].helpfulness).toBe("number")
+            expect(Array.isArray(response[i].photos)).toBe(true)
+          }
+        } catch (err) {
+          expect(err).toBeNull()
       }
-    } catch (err) {
-      expect(err).toBeNull()
-    }
   })
 
-  // test('Answers Post function should POST', async () => {
-  //   const response = await models.answers.post({
-  //     body: "Waffles",
-  //     name: "Apple",
-  //     email: "apple@gmail.com",
-  //     product_id: 1
-  //   })
-  //   expect(response).toBeDefined()
-  // })
+  test('Answers Post function should POST', async () => {
+    const response = await models.answers.post({question_id: 1},
+      {body: "These shoes fit true to size",
+      name: "Blinx",
+      email: "Fisheater@gmail.com",
+      photos: "['wow so cool']"
+    })
+
+    for (let i = 0; i < response.length; i++) {
+      expect(response[i]).toBe({
+        body: "These shoes fit true to size",
+        name: "Blinx",
+        email: "Fisheater@gmail.com",
+        photos: "['wow so cool']"
+      })
+    }
+  })
 
   //should not show up in list -- problem with the next answer_id with undefined showing up
   test('Answers PUT function should report', async () => {
@@ -86,8 +101,6 @@ describe('Answers Controllers and Models', () => {
   //use can only vote once
   test('Answers PUT function should increment helpful by 1', async () => {
     const response = await models.answers.helpful({answer_id: 7})
-    for (let i = 0; i < response.length; i++) {
-      expect(response[i].helpfulness).toBe(8)
-    }
+    expect(response).toBeTruthy()
   })
 })
