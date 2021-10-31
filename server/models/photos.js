@@ -10,7 +10,7 @@ module.exports = {
     VALUES
     (
       ${answer_id},
-      UNNEST(ARRAY${JSON.stringify(urls).replace(/"/g, "'")})
+      UNNEST(ARRAY${urls.replace(/"/g, "'")})
     )
     `)
     return pool.query(
@@ -21,7 +21,7 @@ module.exports = {
       VALUES
       (
         ${answer_id},
-        UNNEST(ARRAY${JSON.stringify(urls).replace(/"/g, "'")})
+        UNNEST(ARRAY${urls.replace(/"/g, "'")})
       )
       `
     )

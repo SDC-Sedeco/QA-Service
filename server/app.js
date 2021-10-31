@@ -30,9 +30,9 @@ app.use('/api/qa', router)
 
 app.post('/api/qa/questions/:question_id/answers', upload.array('photos', 5), (req, res) => {
   console.log('req.headers', req.headers);
-  console.log('req.files', req.files,req.file,  req.body.photos);
+  console.log('req.files', req.files);
+  console.log('body', req.body);
 
-  console.log('body', req.body)
   for (let [i, photo] of req.files.entries()) {
     fs.readFile(photo.path, (err, data) => {
       if (err) {
@@ -58,8 +58,6 @@ app.post('/api/qa/questions/:question_id/answers', upload.array('photos', 5), (r
         //     }
         //   }
         // });
-
-
       }
     })
   }
