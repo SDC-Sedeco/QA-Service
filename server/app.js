@@ -6,6 +6,9 @@ const logger = require('morgan')
 const models = require('./models')
 const fs = require('fs')
 const multer = require('multer')
+const AWS = require('aws-sdk')
+const ACCESS_ID = process.env.S3_ACCESS_ID
+const SECRET_KEY = process.env.S3_SECRET_KEY
 
 const app = express()
 
