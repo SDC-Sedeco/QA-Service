@@ -15,17 +15,17 @@ module.exports ={
     }).catch((err) => res.status(500).send(err))
   },
 
-  post: (req, res) => {
-    const {body, name, email, photos} = req.body
-    console.log('params', photos, req.body)
-    models.answers.post(req.params, req.body)
-    .then(({rows}) => models.photos.post(rows[0], req.body))
-    .then((result) => res.status(201).send(result))
-    .catch((err) => {
-      console.log('error', err)
-      res.status(400).send(err)
-    })
-  },
+  // post: (req, res) => {
+  //   const {body, name, email, photos} = req.body
+  //   console.log('params', photos, req.body)
+  //   models.answers.post(req.params, req.body)
+  //   .then(({rows}) => models.photos.post(rows[0], req.body))
+  //   .then((result) => res.status(201).send(result))
+  //   .catch((err) => {
+  //     console.log('error', err)
+  //     res.status(400).send(err)
+  //   })
+  // },
 
   helpful: (req, res) => {
     models.answers.helpful(req.params)
