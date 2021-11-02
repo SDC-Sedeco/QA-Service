@@ -6,18 +6,13 @@ const pool = new Pool({
   user: process.env.PGUSER,
   pw: process.env.PGPASSWORD,
   db: process.env.PGDATABASE,
-  port: process.env.PGPORT,
+  port: process.env.PGPORT || '5433',
   pool: {
     max: 25,
     min: 0,
     idleTimeoutMillis: 1000
   }
 })
-
-pool.on('error', (err, client) => {
-  console.error('Error:', err)
-})
-
 
 const query = `SELECT * FROM answers ORDER BY id DESC LIMIT 3`;
 
