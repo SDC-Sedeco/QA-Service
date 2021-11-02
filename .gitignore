@@ -120,7 +120,7 @@ dist
 
 #misc
 config
-config.js
+database.json
 csv
 pg-data
 

@@ -16,7 +16,7 @@ const pool = new Pool({
 
 pool.connect()
 
-let query = `SELECT * FROM "USERS"`
+let query = `SELECT * FROM answers ORDER BY id DESC LIMIT 5`
 
 pool.query(query, (err, res) => {
   if (!err) {

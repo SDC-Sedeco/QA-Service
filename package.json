@@ -6,6 +6,9 @@
   "scripts": {
     "start": "node server/index.js",
     "server-dev": "npx nodemon server/index.js",
+    "migrate-up": "db-migrate up -c 1 --config ./database.json",
+    "migrate-down": "db-migrate down -c 1 --config ./database.json",
+    "migrate_up_all": "db-migrate up --config ./database.json",
     "lint": "eslint --ext js --ignore-pattern node_modules/",
     "test": "jest --runInBand --detectOpenHandles --verbose --coverage"
   },
@@ -33,6 +36,8 @@
   "dependencies": {
     "aws-sdk": "^2.1018.0",
     "cors": "^2.8.5",
+    "db-migrate": "^1.0.0-beta.16",
+    "db-migrate-pg": "^1.2.2",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "multer": "^1.4.3",
