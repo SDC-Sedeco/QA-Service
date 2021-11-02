@@ -10,22 +10,32 @@ const pool = new Pool({
   pool: {
     max: 25,
     min: 0,
-    idleTimeoutMillis: 3000
+    idleTimeoutMillis: 1000
   }
 })
+
+pool.on('error', (err, client) => {
+  console.error('Error:', err)
+})
+
+
+const query = `SELECT * FROM answers ORDER BY id DESC LIMIT 3`;
 
 pool.connect()
-
-let query = `SELECT * FROM answers ORDER BY id DESC LIMIT 5`
-
-pool.query(query, (err, res) => {
-  if (!err) {
-    console.log(res.rows)
-  } else {
-    console.log(err.message)
-  }
-  pool.end
+.then((client) => {
+  client.query(query)
+    .then(res => {
+      for (let row of res.rows) {
+        console.log(row)
+      }
+    })
+    .catch(err => {
+      console.error(err);
+    });
 })
+.catch(err => {
+  console.error(err);
+});
 
 
 module.exports.pool = pool;

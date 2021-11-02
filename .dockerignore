@@ -1,7 +1,8 @@
-.dockerignore
 .git
-docker-compose*.yml
-Dockerfile
-.dist
+.gitignore
 node_modules
-pg-data
+npm-debug.log
+Dockerfile*
+docker-compose*.yml
+README.md
+LICENSE
