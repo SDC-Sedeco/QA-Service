@@ -6,7 +6,7 @@ const pool = new Pool({
   user: process.env.PGUSER,
   pw: process.env.PGPASSWORD,
   db: process.env.PGDATABASE,
-  port: process.env.PGPORT || '5433',
+  port: process.env.PGPORT,
   pool: {
     max: 25,
     min: 0,
@@ -25,11 +25,11 @@ pool.connect()
       }
     })
     .catch(err => {
-      console.error(err);
+      console.error('error running query', err);
     });
-})
-.catch(err => {
-  console.error(err);
+  })
+  .catch(err => {
+    console.error('could not connect to postgres', err);
 });
 
 
