@@ -122,7 +122,8 @@ dist
 config
 database.json
 csv
-pg-data
+data
+fixtures
 
 #whitelist
 !*.sql

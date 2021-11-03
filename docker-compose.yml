@@ -3,25 +3,30 @@ version: "3.8"
 services:
   #Database
   db:
-    image: "postgres:13"
+    image: postgres:14.0
+    container_name: db
     restart: always
     environment:
       POSTGRES_USER: louisa
       POSTGRES_DATABASE: qa
       POSTGRES_PASSWORD: password
     volumes:
-      - ./pg-data:/var/lib/postgreql/data
+      - data:/var/lib/postgresql/data
+      volumes:
+        data:
+          driver: local
     expose:
-      - '5432'
+      - "5432"
     ports:
-      - '5432:5432'
+      - "5432:5432"
+
   #Server
-  web:
-    image: qa-service-app
-    network_mode: host
-    depends_on:
-      db:
-          condition: service_healthy
+  qa-server:
+    container_name: qa-service
+    restart: always
+    build: .
     ports:
-      - '8083:8083'
+      - "8083:8083"
+    depends_on:
+      - db
     command: ["./wait-for-it.sh", "db:5432"]

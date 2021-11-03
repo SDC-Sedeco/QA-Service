@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node server/index.js",
     "server-dev": "npx nodemon server/index.js",
-    "build": "docker run -p 8083:8083 qa-service-app",
     "migrate-up": "db-migrate up -c 1 --config ./database.json",
     "migrate-down": "db-migrate down -c 1 --config ./database.json",
     "migrate_up_all": "db-migrate up --config ./database.json",

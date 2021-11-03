@@ -9,7 +9,7 @@ RUN mkdir /QA-Service
 WORKDIR /QA-Service
 
 # Copies npm files to WORKDIR.
-COPY package.json .
+COPY package*.json ./
 
 
 #Download required packages
@@ -18,7 +18,6 @@ RUN npm install --quiet
 #COPIES files from current folder to WORKDIR
 COPY . .
 COPY .env .
-
 
 EXPOSE 8083
 
