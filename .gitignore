@@ -122,7 +122,7 @@ dist
 config
 database.json
 csv
-data
+pg-data
 fixtures
 
 #whitelist

@@ -1,32 +1,25 @@
-# Manage multi-container docker applications
+
 version: "3.8"
 services:
-  #Database
+  qa-server:
+    image: qa-service
+    restart: always
+    build: .
+    depends_on:
+      - db
+    ports:
+      - "8083:8083"
   db:
     image: postgres:14.0
-    container_name: db
     restart: always
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_USER: louisa
       POSTGRES_DATABASE: qa
       POSTGRES_PASSWORD: password
     volumes:
-      - data:/var/lib/postgresql/data
-      volumes:
-        data:
-          driver: local
-    expose:
-      - "5432"
-    ports:
-      - "5432:5432"
+      - pg-data:/var/lib/postgresql/data
 
-  #Server
-  qa-server:
-    container_name: qa-service
-    restart: always
-    build: .
-    ports:
-      - "8083:8083"
-    depends_on:
-      - db
-    command: ["./wait-for-it.sh", "db:5432"]
+volumes:
+  pg-data:
