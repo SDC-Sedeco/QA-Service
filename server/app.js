@@ -39,7 +39,7 @@ app.use(cors())
 app.use('/api/qa', router)
 
 app.post('/api/qa/questions/:question_id/answers', upload.array('photos', 5), (req, res) => {
-  // console.log('req.files', req.files);
+  console.log('req.files', req.files);
   const files = req.files;
 
   AWS.config.update({

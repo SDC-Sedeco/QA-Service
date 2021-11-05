@@ -19,19 +19,24 @@ export const options = {
   },
 };
 
-
 export default function () {
   const BASE_URL = 'http://localhost:8083';
   const randomInt = function (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
-  const question_id = randomInt(3167060, 3518957)
+  const productId = randomInt(900010, 1000011)
 
-  const res = http.get(`${BASE_URL}/api/qa/questions/${question_id}/answers`
+  const data = {
+    product_id: productId,
+    body: 'Is this going to be worth buying?',
+    name: 'CuriousTester',
+    email: 'CuriousTest@gmail.com'
+  }
+
+  const res = http.post(`${BASE_URL}/api/qa/questions`, JSON.stringify(data), {headers: { 'Content-Type': 'application/json'}}
   );
 
   check(res, {
-    success: (r) => r.status === 200,
-  });
+    success: (r) => r.status === 201,
+  })
 }
-

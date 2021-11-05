@@ -1,6 +1,7 @@
 import http from 'k6/http';
 import { check } from 'k6';
 
+
 export const options = {
   discardResponseBodies: true,
   scenarios: {
@@ -19,19 +20,18 @@ export const options = {
   },
 };
 
-
 export default function () {
   const BASE_URL = 'http://localhost:8083';
   const randomInt = function (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
-  const question_id = randomInt(3167060, 3518957)
 
-  const res = http.get(`${BASE_URL}/api/qa/questions/${question_id}/answers`
-  );
+  const answerId = randomInt(6191583, 6879536)
+
+  const res = http.put(`${BASE_URL}/api/qa/answers/${answerId}/helpful`, {headers: {'Content-Type': 'application/json'}});
+
 
   check(res, {
-    success: (r) => r.status === 200,
-  });
+    success: (r) => r.status === 204,
+  })
 }
-

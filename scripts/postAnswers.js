@@ -25,13 +25,20 @@ export default function () {
   const randomInt = function (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
-  const question_id = randomInt(3167060, 3518957)
+  const questionId = randomInt(3167060, 3518957)
 
-  const res = http.get(`${BASE_URL}/api/qa/questions/${question_id}/answers`
+  const data = {
+    body: 'Is this going to be worth buying?',
+    name: 'CuriousTester',
+    email: 'CuriousTest@gmail.com',
+    photos: ['https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1180&q=80']
+  }
+
+  const res = http.post(`${BASE_URL}/api/qa/questions/${questionId}/answers`, JSON.stringify(data), {headers: {'Content-Type': 'application/json'}}
   );
 
   check(res, {
-    success: (r) => r.status === 200,
+    success: (r) => r.status === 201,
   });
 }
 
