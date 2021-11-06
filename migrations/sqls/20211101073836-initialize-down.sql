@@ -1,0 +1,4 @@
+DROP TABLE questions CASCADE;
+
+
+-- TRUNCATE TABLE questions CASCADE;

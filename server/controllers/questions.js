@@ -17,8 +17,8 @@ module.exports = {
 
         rows[i].answers = answerObject
       }
-      rows.length === 0 ? res.sendStatus(500)
-      : res.status(200).send(
+      // rows.length === 0 ? res.status(200).send('No questions for this ID'):
+      res.status(200).send(
         {
         'product_id': req.query.product_id,
         'results': rows

@@ -1,7 +1,11 @@
-.dockerignore
 .git
-docker-compose*.yml
-Dockerfile
-.dist
+.gitignore
 node_modules
-pg-data
+npm-debug.log
+Dockerfile*
+docker-compose*.yml
+README.md
+LICENSE
+loaderio-331f6abcab82fd056c9b4d0516047478.txt
+
+
