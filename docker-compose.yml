@@ -49,7 +49,7 @@ services:
       - ./scripts:/scripts
   qa-server:
     image: qa-service
-    working_dir: /Atelier/client/dist/index.html
+    working_dir: /QA-Service/server
     restart: always
     build: .
     depends_on:

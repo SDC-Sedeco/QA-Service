@@ -39,7 +39,8 @@ app.use(cors())
 app.use('/api/qa', router)
 
 app.post('/api/qa/questions/:question_id/answers', upload.array('photos', 5), (req, res) => {
-  console.log('req.files', req.files);
+  console.log('req.files', req.files); //
+  console.log('req headers', req.headers) //multipart/form-data; boundary=----WebKitFormBoundaryQ7QjdzbqV5imnBa6
   const files = req.files;
 
   AWS.config.update({
@@ -78,6 +79,10 @@ app.post('/api/qa/questions/:question_id/answers', upload.array('photos', 5), (r
     })
   }
 })
+
+// app.get('/loaderio-331f6abcab82fd056c9b4d0516047478/', (req, res) => {
+//   res.status(200).send(`loaderio-331f6abcab82fd056c9b4d0516047478`);
+// })
 
 app.get('/', (req, res) => {
   res.sendFile(path.resolve(`${staticAssets}/index.html`));

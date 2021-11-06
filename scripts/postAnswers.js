@@ -1,5 +1,6 @@
 import http from 'k6/http';
 import { check } from 'k6';
+import { FormData } from 'https://jslib.k6.io/formdata/0.0.2/index.js';
 
 export const options = {
   discardResponseBodies: true,
@@ -19,23 +20,29 @@ export const options = {
   },
 };
 
+const testImg = open('/Users/louisa/diamond.png', 'b')
+
 
 export default function () {
+
+  const fd = new FormData();
+  fd.append('body', 'this is a body')
+  fd.append('name', 'name test')
+  fd.append('email', 'test@gmail.com')
+  fd.append('photos', http.file(testImg, 'diamond.png', 'image/png'))
+  fd.append('urls', JSON.stringify(["https://sdc-qa-atelier-bucket.s3.us-west-1.amazonaws.com/diamond.png"]))
+
   const BASE_URL = 'http://localhost:8083';
+
   const randomInt = function (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
   const questionId = randomInt(3167060, 3518957)
 
-  const data = {
-    body: 'Is this going to be worth buying?',
-    name: 'CuriousTester',
-    email: 'CuriousTest@gmail.com',
-    photos: ['https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1180&q=80']
-  }
-
-  const res = http.post(`${BASE_URL}/api/qa/questions/${questionId}/answers`, JSON.stringify(data), {headers: {'Content-Type': 'application/json'}}
-  );
+  const res = http.post(`${BASE_URL}/api/qa/questions/${questionId}/answers`,
+  fd.body(),
+   {headers: {'Content-Type': 'multipart/form-data; boundary=' + fd.boundary},
+  });
 
   check(res, {
     success: (r) => r.status === 201,

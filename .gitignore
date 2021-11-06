@@ -132,3 +132,4 @@ run-test.sh
 #whitelist
 !*.sql
 !*.sql/**
+loaderio-331f6abcab82fd056c9b4d0516047478.txt
