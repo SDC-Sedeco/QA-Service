@@ -1,11 +1,6 @@
 CREATE DATABASE qa;
 DROP DATABASE [IF EXISTS] qa;
--- psql postgres -U louisa
--- \c qa
 
-
--- Table: public.questions
--- DROP TABLE public."questions";
 
 CREATE TABLE IF NOT EXISTS questions (
   id SERIAL PRIMARY KEY,

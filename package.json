@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npx nodemon server/index.js",
     "server-dev": "npx nodemon server/index.js",
-    "migrate-up": "db-migrate up -c 1 --config ./database.json",
+    "migrate-up": "db-migrate up -c 1 --config ./database.json && db:seed:all",
     "migrate-down": "db-migrate down -c 1 --config ./database.json",
     "lint": "eslint --ext js --ignore-pattern node_modules/",
     "test": "jest --runInBand --detectOpenHandles --verbose --coverage"

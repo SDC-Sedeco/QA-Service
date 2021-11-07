@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS photos (
+ id SERIAL PRIMARY KEY,
+ answer_id INT NOT NULL,
+ url VARCHAR(255)
+);
