@@ -8,7 +8,6 @@
     "server-dev": "npx nodemon server/index.js",
     "migrate-up": "db-migrate up -c 1 --config ./database.json",
     "migrate-down": "db-migrate down -c 1 --config ./database.json",
-    "migrate_up_all": "db-migrate up --config ./database.json",
     "lint": "eslint --ext js --ignore-pattern node_modules/",
     "test": "jest --runInBand --detectOpenHandles --verbose --coverage"
   },
@@ -41,7 +40,6 @@
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "multer": "^1.4.3",
-    "multer-s3": "^2.10.0",
     "nodemon": "^2.0.13",
     "pg": "^8.7.1"
   },

@@ -6,11 +6,11 @@ export const options = {
   scenarios: {
     contact_request_rate: {
       executor: 'constant-arrival-rate', //generates constant request rate with constant arrival
-      rate: 100,
+      rate: 1000,
       timeUnit: '1s', //100 iterations per second (100 RPS)
       duration: '60s', //Max
-      preAllocatedVUs: 150, // Initial pool of VUs
-      maxVUs: 200, //Initialize more if preAllocated not enough
+      preAllocatedVUs: 1000, // Initial pool of VUs
+      maxVUs: 2000, //Initialize more if preAllocated not enough
     },
   },
   thresholds: {
