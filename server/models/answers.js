@@ -74,8 +74,8 @@ module.exports = {
       UPDATE answers
       SET
       reported = TRUE
-      WHERE
-      id = ${answer_id}`
+      WHERE reported = FALSE
+      AND id = ${answer_id}`
     )
   }
 }

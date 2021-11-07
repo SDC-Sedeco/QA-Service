@@ -4,7 +4,6 @@ module.exports ={
   get: (req, res) => {
     models.answers.get(req.params, req.query)
     .then(({rows}) => {
-      // rows.length === 0 ? res.sendStatus(500)
       res.status(200).send(
         {
         'question': req.params.question_id,

@@ -123,10 +123,7 @@ config
 database.json
 csv
 pg-data
-fixtures
-influxdb.conf
-run-test.ps1
-run-test.sh
+test_queries
 
 
 #whitelist
