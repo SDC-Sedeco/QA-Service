@@ -1,4 +1,4 @@
-# Greenfield QA-Service
+# Project Greenfield QA-Service
 
 A service dedicated to serving the Questions & Answers widget.
 
