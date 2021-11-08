@@ -31,7 +31,7 @@ Open ```http://localhost:8083```
 
  ## Routes
 [Project Greenfield API](https://gist.github.com/trentgoing/409c2d76ce8e187e2132e45d9bed4605#file-questions_api-md)
-|REQUEST    |ENDPOINT                          |STATUS        |
+|Request    |Endpoint                          |Status        |
 |-----------|----------------------------------|--------------|
 |    GET    |  /qa/:product_id                 |200 OK        |
 |    GET    |  /qa/:question_id/answers        |200 OK        |
