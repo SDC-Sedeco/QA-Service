@@ -1,3 +1,4 @@
+--This should be done before indexing
 ALTER TABLE photos SET UNLOGGED;
 COPY photos FROM '/csv/answers_photos.csv' DELIMITER ',' CSV HEADER;
 ALTER TABLE photos ADD CONSTRAINT fk_answer FOREIGN KEY (answer_id) REFERENCES answers(id);
