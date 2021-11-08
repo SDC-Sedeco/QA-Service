@@ -14,24 +14,25 @@ const pool = new Pool({
   }
 })
 
-const query = `SELECT * FROM answers ORDER BY id DESC LIMIT 3`;
+// const query = `SELECT * FROM answers ORDER BY id DESC LIMIT 3`;
+
+// pool.connect()
+// .then((client) => {
+//   client.query(query)
+//     .then(res => {
+//       for (let row of res.rows) {
+//         console.log(row)
+//       }
+//     })
+//     .catch(err => {
+//       console.error('error running query', err);
+//     });
+//   })
+//   .catch(err => {
+//     console.error('could not connect to postgres', err);
+// });
 
 pool.connect()
-.then((client) => {
-  client.query(query)
-    .then(res => {
-      for (let row of res.rows) {
-        console.log(row)
-      }
-    })
-    .catch(err => {
-      console.error('error running query', err);
-    });
-  })
-  .catch(err => {
-    console.error('could not connect to postgres', err);
-});
-
 
 module.exports.pool = pool;
 

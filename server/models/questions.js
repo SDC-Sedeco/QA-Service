@@ -2,7 +2,6 @@ const { pool } = require('./../../database/db.js')
 
 module.exports = {
   get:({product_id, page = 1, count = 5}) => {
-    // console.log(product_id, page, count)
     return pool.query(
       `
       SELECT
@@ -52,13 +51,11 @@ module.exports = {
            AND NOT questions.reported
            GROUP BY questions.id
            LIMIT ${count}
-           OFFSET ${(page - 1) * count}
-      `
-      )
+           OFFSET ${(page - 1) * count}`
+    )
   },
 
   post:({body, name, email, product_id}) => {
-    // console.log('MODEL POSTED', body, name, email, product_id)
    return pool.query(
       `
       INSERT

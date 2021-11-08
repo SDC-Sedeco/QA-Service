@@ -14,6 +14,14 @@ module.exports ={
     }).catch((err) => res.status(500).send(err))
   },
 
+  post: (req, res) => {
+    const {body, name, email} = req.body
+    models.answers.post(req.params, req.body)
+    .then(({rows}) => models.photos.post(rows[0], req.body))
+    .then(() => res.sendStatus(201))
+    .catch((err) => res.status(500).send(err))
+  },
+
   helpful: (req, res) => {
     models.answers.helpful(req.params)
     .then(() => res.sendStatus(204))

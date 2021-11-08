@@ -20,17 +20,17 @@ export const options = {
   },
 };
 
-const testImg = open('/Users/louisa/diamond.png', 'b')
+// const testImg = open('/Users/louisa/diamond.png', 'b')
 
 
 export default function () {
 
-  const fd = new FormData();
-  fd.append('body', 'this is a body')
-  fd.append('name', 'name test')
-  fd.append('email', 'test@gmail.com')
-  fd.append('photos', http.file(testImg, 'diamond.png', 'image/png'))
-  fd.append('urls', JSON.stringify(["https://sdc-qa-atelier-bucket.s3.us-west-1.amazonaws.com/diamond.png"]))
+  // const fd = new FormData();
+  // fd.append('body', 'this is a body')
+  // fd.append('name', 'name test')
+  // fd.append('email', 'test@gmail.com')
+  // fd.append('photos', http.file(testImg, 'diamond.png', 'image/png'))
+  // fd.append('urls', JSON.stringify(["https://sdc-qa-atelier-bucket.s3.us-west-1.amazonaws.com/diamond.png"]))
 
   const BASE_URL = 'http://localhost:8083';
 
@@ -39,10 +39,19 @@ export default function () {
   };
   const questionId = randomInt(3167060, 3518957)
 
-  const res = http.post(`${BASE_URL}/api/qa/questions/${questionId}/answers`,
-  fd.body(),
-   {headers: {'Content-Type': 'multipart/form-data; boundary=' + fd.boundary},
-  });
+  const data = {
+    body: 'Test body',
+    name: 'name test',
+    email:'test@gmail.com',
+    urls: ["https://sdc-qa-atelier-bucket.s3.us-west-1.amazonaws.com/diamond.png"]
+  }
+
+  const res = http.post(`${BASE_URL}/api/qa/questions/${questionId}/answers`, JSON.stringify(data), {headers: {'Content-Type': 'application/json'}})
+
+  // const res = http.post(`${BASE_URL}/api/qa/questions/${questionId}/answers`,
+  // fd.body(),
+  //  {headers: {'Content-Type': 'multipart/form-data; boundary=' + fd.boundary},
+  // });
 
   check(res, {
     success: (r) => r.status === 201,
