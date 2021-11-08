@@ -14,10 +14,10 @@ Run tests: -npm test
 Open http://localhost:8083
 
 # Tech-Stack
- Node.js
- Express
- Postgres
- Docker
+ * Node.js
+ * Express
+ * Postgres
+ * Docker
 
  # Routes
  QUESTIONS
