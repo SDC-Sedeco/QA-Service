@@ -2,10 +2,6 @@ const express = require('express')
 const router = express.Router()
 const controller = require('./controllers');
 
-router.get('/test', (req, res) => {
-  res.status(200).json({test:'Working'})
-});
-
 router.get('/questions', controller.questions.get);
 
 
@@ -15,7 +11,9 @@ router.get('/questions/:question_id/answers', controller.answers.get);
 router.post('/questions', controller.questions.post);
 
 
-// router.post('/questions/:question_id/answers', controller.answers.post);
+if (process.env.NODE_ENV === 'development') {
+  router.post('/questions/:question_id/answers', controller.answers.post);
+}
 
 
 router.put('/questions/:question_id/helpful', controller.questions.helpful);

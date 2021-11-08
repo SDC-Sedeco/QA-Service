@@ -1,44 +1,43 @@
-# QA-Service
+# Project Greenfield QA-Service
 
 A service dedicated to serving the Questions & Answers widget.
 
-# Setup
+## Setup
 
-Install dependencies: -npm install
+> Install dependencies
+```
+npm install
+```
 
-Start the server: -npm start
+> Start the server in development
+```
+npm start
+```
 
-Run tests: -npm test
+> Run tests
+```
+npm test
+```
 
-# Dependencies
- * express ^4.17.1
- * nodemon ^2.0.13
- * cors ^2.8.5
- * morgan ^1.10.0
- * pg ^8.7.1
- * aws-sdk ^2.1018.0
- * multer ^1.4.3
+Open ```http://localhost:8083```
 
- # devDependencies
- * dotenv ^10.0.0
- * eslint ^8.0.0
- * jest ^27.2.5
- * supertest ^6.1.6
+## Tech-Stack
 
- # Database
-  Postgres (psql 14.0)
+* [Node.js](https://nodejs.org/en/)
+* [Express](http://expressjs.com/)
+* [Postgres](https://www.postgresql.org/)
+* [Docker](https://www.docker.com/)
 
- # APIs
 
- QUESTIONS
- * GET /qa/questions
- * POST /qa/questions
- * PUT /qa/questions/:question_id/helpful
- * PUT /qa/questions/:question_id/report
-
- ANSWERS
-
- * GET /qa/questions/:question_id/answers
- * POST /qa/questions/:question_id/answers
- * PUT /qa/answers/:answer_id/helpful
- * PUT /qa/answers/:answer_id/report
+ ## Routes
+[Project Greenfield API](https://gist.github.com/trentgoing/409c2d76ce8e187e2132e45d9bed4605#file-questions_api-md)
+|Request    |Endpoint                          |Status        |
+|-----------|----------------------------------|--------------|
+|    GET    |  /qa/:product_id                 |200 OK        |
+|    GET    |  /qa/:question_id/answers        |200 OK        |
+|    POST   |  /qa/:product_id                 |201 CREATED   |
+|    POST   |  /qa/:question_id/answers        |201 CREATED   |
+|    PUT    | /qa/question/:question_id/helpful|204 NO CONTENT|
+|    PUT    | /qa/question/:question_id/report |204 NO CONTENT|
+|    PUT    | /qa/answer/:answer_id/helpful    |204 NO CONTENT|
+|    PUT    | /qa/answer/:answer_id/report     |204 NO CONTENT|

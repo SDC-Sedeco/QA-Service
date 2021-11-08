@@ -27,15 +27,15 @@ module.exports = {
         FROM answers
         LEFT JOIN photos
         ON photos.answer_id = answers.id
-        WHERE NOT answers.reported AND answers.question_id = ${question_id}
+        WHERE answers.reported = FALSE AND answers.question_id = ${question_id}
         GROUP BY answers.id
+        ORDER BY answers.id
           LIMIT ${count}
           OFFSET ${(page - 1) * count}`
       )
   },
 
   post:({question_id}, {body, name, email}) => {
-    console.log(question_id, body, name, email)
     return pool.query(
       `
       INSERT INTO answers
@@ -74,8 +74,8 @@ module.exports = {
       UPDATE answers
       SET
       reported = TRUE
-      WHERE
-      id = ${answer_id}`
+      WHERE reported = FALSE
+      AND id = ${answer_id}`
     )
   }
 }

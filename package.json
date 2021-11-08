@@ -4,11 +4,9 @@
   "description": "A service dedicated to serving the Questions & Answers widget.",
   "main": "index.js",
   "scripts": {
-    "start": "npx nodemon server/index.js",
-    "server-dev": "npx nodemon server/index.js",
+    "start": "NODE_ENV=production npx nodemon server/index.js",
+    "start-dev": "NODE_ENV=development npx nodemon server/index.js",
     "migrate-up": "db-migrate up -c 1 --config ./database.json",
-    "migrate-down": "db-migrate down -c 1 --config ./database.json",
-    "migrate_up_all": "db-migrate up --config ./database.json",
     "lint": "eslint --ext js --ignore-pattern node_modules/",
     "test": "jest --runInBand --detectOpenHandles --verbose --coverage"
   },
@@ -16,12 +14,8 @@
     "Nodejs",
     "Express",
     "RestAPI",
-    "Amazon",
     "AWS",
-    "S3",
-    "Upload",
-    "Files",
-    "Multer"
+    "Docker"
   ],
   "repository": {
     "type": "git",
@@ -41,7 +35,6 @@
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "multer": "^1.4.3",
-    "multer-s3": "^2.10.0",
     "nodemon": "^2.0.13",
     "pg": "^8.7.1"
   },
