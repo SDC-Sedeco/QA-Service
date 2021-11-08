@@ -11,12 +11,12 @@ npm install
 
 > Start the server in development
 ```
-start-dev
+npm run start-dev
 ```
 
 > Start the server in production
 ```
-start
+npm start
 ```
 
 > Run tests
