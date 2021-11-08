@@ -6,30 +6,20 @@ A service dedicated to serving the Questions & Answers widget.
 
 Install dependencies: -npm install
 
-Start the server: -npm start
+Start the server:
+-npm start (development)
 
 Run tests: -npm test
 
-# Dependencies
- * express ^4.17.1
- * nodemon ^2.0.13
- * cors ^2.8.5
- * morgan ^1.10.0
- * pg ^8.7.1
- * aws-sdk ^2.1018.0
- * multer ^1.4.3
+Open http://localhost:8083
 
- # devDependencies
- * dotenv ^10.0.0
- * eslint ^8.0.0
- * jest ^27.2.5
- * supertest ^6.1.6
+# Tech-Stack
+ Node.js
+ Express
+ Postgres
+ Docker
 
- # Database
-  Postgres (psql 14.0)
-
- # APIs
-
+ # Routes
  QUESTIONS
  * GET /qa/questions
  * POST /qa/questions
