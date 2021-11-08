@@ -14,12 +14,8 @@
     "Nodejs",
     "Express",
     "RestAPI",
-    "Amazon",
     "AWS",
-    "S3",
-    "Upload",
-    "Files",
-    "Multer"
+    "Docker"
   ],
   "repository": {
     "type": "git",
