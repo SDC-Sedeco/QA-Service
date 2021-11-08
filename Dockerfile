@@ -25,4 +25,4 @@ COPY .env .
 EXPOSE 8083
 
 #Runs application when running container
-CMD ["npm", "start"]
+CMD ["npm", "run", "start-dev"]
