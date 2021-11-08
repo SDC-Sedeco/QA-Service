@@ -34,9 +34,9 @@ Open ```http://localhost:8083```
 |REQUEST    |ENDPOINT                          |STATUS        |
 |-----------|----------------------------------|--------------|
 |    GET    |  /qa/:product_id                 |200 OK        |
-|    GET    |  /qa/:question_id/answers.       |200 OK        |
+|    GET    |  /qa/:question_id/answers        |200 OK        |
 |    POST   |  /qa/:product_id                 |201 CREATED   |
-|    POST   |  /qa/:question_id/answers.       |201 CREATED   |
+|    POST   |  /qa/:question_id/answers        |201 CREATED   |
 |    PUT    | /qa/question/:question_id/helpful|204 NO CONTENT|
 |    PUT    | /qa/question/:question_id/report |204 NO CONTENT|
 |    PUT    | /qa/answer/:answer_id/helpful    |204 NO CONTENT|
