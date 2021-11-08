@@ -7,7 +7,7 @@ const logger = require('morgan')
 const models = require('./models')
 const multer = require('multer')
 const AWS = require('aws-sdk')
-// console.log(process.env.NODE_ENV)
+console.log(process.env.NODE_ENV)
 
 
 const app = express()
@@ -44,25 +44,21 @@ app.use('/api/qa', router)
 if (process.env.NODE_ENV === 'production') {
 
   app.post('/api/qa/questions/:question_id/answers', upload.array('photos', 5), (req, res) => {
-
     const files = req.files;
-
 
     for (let [i, photo] of files.entries()) {
       fs.readFile(photo.path, (err, data) => {
 
         if (err) {
           res.status(500).send(err);
-        } else {
-
-          if (process.env.NODE_ENV === 'production') {
-
+          } else {
             AWS.config.update({
               accessKeyId: process.env.AWS_ACCESS_KEY,
               secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
               region: process.env.REGION,
               signatureVersion: 'v4'
-            })
+            }
+          )
 
             const s3 = new AWS.S3()
 
@@ -84,16 +80,7 @@ if (process.env.NODE_ENV === 'production') {
                 }
               }
             })
-          } else if (process.env.NODE_ENV === 'development') {
-
-              if (i === files.length - 1) {
-                models.answers.post(req.params, req.body)
-                .then(({rows}) => models.photos.post(rows[0], req.body))
-                .then(() => res.status(201).send('CREATED'))
-                .catch((err) => res.status(400).send(err))
-              }
-            }
-          } //development mode
+         }
       })
     }
   })
