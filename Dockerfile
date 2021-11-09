@@ -7,7 +7,6 @@ FROM node:14-alpine
 
 RUN mkdir /QA-Service
 
-# Sets the working directory for subsequent build steps, and later for containers created from the image to pathway -- where the application files will go
 WORKDIR /QA-Service
 
 #COPIES files from current folder to WORKDIR

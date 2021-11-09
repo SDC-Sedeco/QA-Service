@@ -125,7 +125,9 @@ csv
 pg-data/*
 test
 .DS_Store
+*/bin/*
 
 #whitelist
 !*.sql
 !*.sql/**
+
