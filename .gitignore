@@ -123,7 +123,7 @@ config
 database.json
 csv
 pg-data/*
-test_queries
+test
 .DS_Store
 
 #whitelist
