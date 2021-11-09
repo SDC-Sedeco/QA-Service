@@ -1,0 +1,260 @@
+#ratingOverviews {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+#ratingOverviewNumber {
+  font-size: 60px;
+  font-weight: 900;
+}
+
+#starDiv {
+  margin-top: 20px;
+  margin-left: 15px;
+}
+
+.ratingOverviewStars {
+  /* font-size: 1px; */
+  height: auto;
+  width: 15px;
+  margin-left: 2px;
+  margin-top: 2px;
+}
+
+#ratingBreakdown {
+  font-weight: bolder;
+}
+
+#ratingBreakdown, #percentRecommended {
+  width: 90%;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+#percentReviews {
+  font-weight: bold;
+}
+
+#starFilterRemove {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+#activeFilters {
+  font-weight: bold;
+}
+
+#eachStarFilter {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  font-size: small;
+}
+
+.starFilters {
+  margin-top: 10px;
+  font-weight: lighter;
+  margin-left: 5px;
+  margin-right: 5px;
+  border: 1px solid black;
+  padding: 0px 5px;
+  border-radius: 5px;
+  width: 55px;
+}
+
+#removeFilters {
+  font-weight: lighter;
+  cursor: pointer;
+  border-radius: 15px;
+  background-color: lightgray;
+  padding: 0px 5px;
+  /* font-size: smaller; */
+}
+
+#removeFiltersDark {
+  font-weight: lighter;
+  cursor: pointer;
+  border-radius: 15px;
+  background-color: #193c49;
+  padding: 0px 5px;
+}
+
+#starBarChart {
+  width: 90%;
+  max-height: 350px;
+  /* border: 1px solid black; */
+  margin: auto;
+  margin-bottom: 38px;
+}
+
+.starRatings, .starRatingsDark, .starBar {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.starRatings {
+  margin-bottom: 11px;
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+
+.starRatings:hover {
+  /* box-shadow: 5px 10px; */
+  background-color: #E8E8E8;
+  border-radius: 5px;
+}
+
+.starRatingsDark {
+  margin-bottom: 11px;
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+
+.starRatingsDark:hover {
+  /* background-color: darkslategray; */
+  background-color: #193c49;
+  border-radius: 5px;
+}
+
+.starBar {
+  width: 70%;
+  max-height: 12px;
+  background-color: lightgray;
+  margin-top: 6px;
+  border-radius: 10px;
+}
+
+.starBar5, .starBar4, .starBar3, .starBar2, .starBar1 {
+  border-radius: 10px;
+  background-color: darkgreen;
+}
+
+.individualCountStarBar {
+  width: 18px;
+  text-align: center;
+}
+
+#arrowCharts {
+  width: 90%;
+  margin: auto;
+
+}
+
+#sizeChart {
+  /* border: 1px solid black; */
+  /* margin-top: 50px; */
+  height: 70px;
+  margin-bottom: 15px;
+}
+
+.plot {
+  display: flex;
+  justify-content: space-between;
+}
+
+.plotBar {
+  width: 33%;
+  height: 10px;
+  background-color: lightgray;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: flex;
+}
+
+.plotBar2 {
+  width: 33%;
+  color: darkgreen;
+}
+
+#sizeChars {
+  display: flex;
+  justify-content: space-between;
+  font-weight: lighter;
+}
+
+#widthChart {
+  /* border: 1px solid black; */
+  height: 70px;
+  margin-bottom: 15px;
+}
+
+#widthChars {
+  display: flex;
+  justify-content: space-between;
+  font-weight: lighter;
+}
+
+#comfortChart {
+  /* border: 1px solid black; */
+  height: 70px;
+  margin-bottom: 15px;
+}
+
+#comfortChars {
+  display: flex;
+  justify-content: space-between;
+  font-weight: lighter;
+}
+
+#qualityChart {
+  /* border: 1px solid black; */
+  height: 70px;
+  margin-bottom: 15px;
+}
+
+#qualityChars {
+  display: flex;
+  justify-content: space-between;
+  font-weight: lighter;
+}
+
+.arrowChart {
+  font-size: small;
+}
+
+.arrowRating1 {
+  width: 33%;
+  white-space: nowrap;
+}
+
+.arrowRating2 {
+  width: 33%;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.arrowRating3 {
+  width: 33%;
+  text-align: end;
+  white-space: nowrap;
+}
+
+#fitChart {
+  /* border: 1px solid black; */
+  height: 70px;
+  margin-bottom: 15px;
+}
+
+#fitChars {
+  display: flex;
+  justify-content: space-between;
+  font-weight: lighter;
+}
+
+#lengthChart {
+  /* border: 1px solid black; */
+  height: 70px;
+  margin-bottom: 15px;
+}
+
+#lengthChars {
+  display: flex;
+  justify-content: space-between;
+  font-weight: lighter;
+}

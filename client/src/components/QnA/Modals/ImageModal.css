@@ -1,0 +1,35 @@
+.image-modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color:rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-modal-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  width: 70%;
+  justify-content: space-around;
+}
+
+.image-modal-container-img {
+  object-fit: fill;
+  height: 100%;
+  width: 100%;
+}
+
+.image-modal-container-close {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  color: #342407;
+  cursor: default;
+  font-size: 25px;
+}

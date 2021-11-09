@@ -3,12 +3,12 @@ version: "3.8"
 
 services:
   qa-server:
-    image: qa-service
+    image: laweeza/qa-service:latest
     container_name: qa-server
     restart: unless-stopped
-    build:
-      context: .
-      dockerfile: Dockerfile
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
     depends_on:
       - db
     ports:

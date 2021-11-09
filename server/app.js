@@ -13,11 +13,13 @@ console.log(process.env.NODE_ENV)
 const app = express()
 
 
-const staticAssets = path.resolve(__dirname.substring(0, __dirname.length - 17), 'Atelier/client/dist')
+const staticAssets = path.resolve(process.env.DOCKER_STATIC_PATH)
 app.use(express.static(staticAssets))
 
 
-const PHOTO_UPLOAD_FOLDER = path.join(__dirname.substring(0, __dirname.length - 17), 'Atelier/client/UploadedPhotos');
+const PHOTO_UPLOAD_FOLDER = process.env.DOCKER_STATIC_PHOTOS_PATH;
+// console.log(__dirname)
+
 app.use(express.static(PHOTO_UPLOAD_FOLDER))
 
 //Store photos to file

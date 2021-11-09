@@ -1,0 +1,174 @@
+.questions-answers-container {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*
+  SEARCH QUESTIONS SECTION
+*/
+
+.search-questions {
+  flex-basis: 105px;
+}
+
+.questions-search {
+  position: relative;
+  top: 20px;
+  display: flex;
+  border: 1px solid black;
+  height: 50px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.questions-search input {
+  position: relative;
+  left: 10px;
+  border: 0;
+  text-align: left;
+  width: 100%;
+  height: 40px;
+  font-weight: 700;
+}
+
+.questions-search input:focus {
+  outline: none;
+}
+
+.search-icon {
+  position: relative;
+  right: 20px;
+}
+
+.header-title {
+  text-align: left;
+  font-size: 14px;
+  font-weight: 700;
+  width: inherit;
+}
+
+/*
+  QUESTIONS LIST SECTION
+*/
+
+/*
+
+ */
+
+
+.questions-list {
+  max-height: 800px;
+  overflow: auto;
+}
+
+.no-question-button {
+  height: 60px;
+  width: 200px;
+}
+
+.individual-question {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.question-info {
+  /* font-size: 11px; */
+  display: flex;
+  justify-content: center;
+}
+
+.question-info > p:first-child > a {
+  text-decoration: underline;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: rgba(204, 204, 203, 0.25);
+}
+
+.answers-body {
+  display: flex;
+}
+
+/* .answers p {
+  font-size: 14px;
+} */
+
+.answer-info {
+  margin-top: 5px;
+  flex-direction: row;
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+  margin-left: 17px;
+}
+
+/* .answer-info p {
+  font-size: 11px;
+} */
+
+.load-answer {
+  cursor: pointer;
+  /* font-size: 14px; */
+  font-weight: 600;
+}
+
+.collapse-body {
+  /* flex-basis: 200px; */
+  max-height: 400px;
+  overflow: auto;
+  border: 1px solid black;
+}
+
+.answer-yes {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.answer-photos {
+  padding-left: 10px;
+}
+
+.answer-img {
+  height: 80px;
+  /* width: 100px; */
+  margin: 10px;
+}
+
+.report-answer {
+  /* font-size: 12px; */
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+
+/*
+  MORE QUESTIONS AND ANSWERS SECTION
+*/
+.more-questions-answers {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+.more-questions-answers button {
+  height: 50px;
+  flex-basis: 220px;
+  text-align: center;
+  margin-right: 20px;
+}
