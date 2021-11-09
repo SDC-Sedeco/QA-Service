@@ -7,18 +7,15 @@ const logger = require('morgan')
 const models = require('./models')
 const multer = require('multer')
 const AWS = require('aws-sdk')
-console.log(process.env.NODE_ENV)
+// console.log(process.env.NODE_ENV)
 
 
 const app = express()
 
-
 const staticAssets = path.resolve(process.env.DOCKER_STATIC_PATH)
 app.use(express.static(staticAssets))
 
-
 const PHOTO_UPLOAD_FOLDER = process.env.DOCKER_STATIC_PHOTOS_PATH;
-// console.log(__dirname)
 
 app.use(express.static(PHOTO_UPLOAD_FOLDER))
 
@@ -44,7 +41,6 @@ app.use('/api/qa', router)
 
 
 if (process.env.NODE_ENV === 'production') {
-
   app.post('/api/qa/questions/:question_id/answers', upload.array('photos', 5), (req, res) => {
     const files = req.files;
 
