@@ -1,7 +1,6 @@
 DROP DATABASE qa;
 CREATE DATABASE qa;
 
---Constraints and indexing will happen after seeding
 
 CREATE TABLE IF NOT EXISTS questions (
   id SERIAL PRIMARY KEY,
