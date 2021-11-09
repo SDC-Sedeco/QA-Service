@@ -11,6 +11,7 @@ RUN mkdir /QA-Service
 WORKDIR /QA-Service
 
 # Copies npm files to WORKDIR.
+
 COPY package*.json ./
 
 
