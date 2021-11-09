@@ -122,9 +122,9 @@ dist
 config
 database.json
 csv
-pg-data
+pg-data/*
 test_queries
-
+.DS_Store
 
 #whitelist
 !*.sql

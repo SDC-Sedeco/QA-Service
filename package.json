@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=production npx nodemon server/index.js",
     "start-dev": "NODE_ENV=development npx nodemon server/index.js",
-    "migrate-up": "db-migrate up -c 1 --config ./database.json",
+    "migrate-up": "db-migrate up",
     "server-dev": "webpack && NODE_ENV=development npx nodemon server/index.js",
     "lint": "eslint --ext js --ignore-pattern node_modules/",
     "test": "jest --runInBand --detectOpenHandles --verbose --coverage"
