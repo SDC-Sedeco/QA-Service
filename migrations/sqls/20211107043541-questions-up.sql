@@ -1,4 +1,3 @@
-DROP TABLE questions;
 CREATE TABLE IF NOT EXISTS questions (
   id SERIAL PRIMARY KEY,
   product_id INT NOT NULL,
