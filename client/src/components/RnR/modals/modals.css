@@ -1,0 +1,177 @@
+.image-modal-aaron {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.58);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-modal-content {
+  min-width: 650px;
+  max-height: 700px;
+  background-color: #fff;
+  overflow-y: auto;
+}
+
+.image-modal-content-dark {
+  min-width: 650px;
+  max-height: 700px;
+  background-color: #0C252F;
+  overflow-y: auto;
+}
+
+.image-modal-content2 {
+  max-height: 750px;
+  /* max-height: 70%; */
+  background-color: #fff;
+}
+
+.image-modal-content2-dark {
+  max-height: 750px;
+  background-color: #0C252F;
+}
+
+.image-modal-header, .image-modal-footer, .image-modal-header2 {
+  padding: 15px;
+  text-align: center;
+}
+
+.image-modal-header2 {
+  margin-bottom: 35px;
+}
+
+.image-modal-body {
+  padding: 0px 100px;
+}
+
+.image-modal-body2 {
+  /* padding: 0px 100px; */
+  padding: 20px 60px;
+}
+
+#displayedModalImage {
+  max-height: 600px;
+  width: auto;
+  cursor: pointer;
+}
+
+#modalProdName {
+  text-decoration: underline;
+  color: darkgreen;
+}
+
+#modalOverallRating {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modalStarsBig {
+  width: 25px;
+  cursor: pointer;
+}
+
+.modalRadios, .modalsTextArea, .modalUploadInput {
+  cursor: pointer;
+}
+
+#modalStarGrade {
+  width: 115px;
+  text-align: center;
+}
+
+#modalRecommend {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modalsAddReviewCats {
+  font-weight: bold;
+}
+
+.modalCatBreak {
+  margin-bottom: 5px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid lightgray;
+}
+
+.modalCatBreakUp {
+  margin-top: 10px;
+}
+
+.modalYesNo {
+  margin-right: 4px;
+}
+
+.modalNo {
+  margin-left: 25px;
+}
+
+.modalCharacteristics {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modalCharacItem {
+  width: 80px;
+  margin-left: 8px;
+}
+
+.modalCharacsNum {
+  margin-left: 10px;
+  margin-right: 2px;
+}
+
+.modalCharacsWords {
+  width: 180px;
+  text-align: end;
+}
+
+#modalEmailInput {
+  width: 300px;
+  cursor: pointer;
+}
+
+.modalMinReq {
+  font-weight: lighter;
+  font-style: italic;
+  font-size: small;
+}
+
+.modalValidationTitle {
+  color: red;
+  font-size: small;
+  text-align: center;
+  font-weight: bold;
+}
+
+.modalValidation {
+  color: red;
+  font-size: small;
+  text-align: center;
+}
+
+.image-button {
+  cursor: pointer;
+  padding: 5px 15px;
+  background-color: royalblue;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+#displayedModalImage {
+  max-width: 500px;
+}
+
+
+
+
+.modal-image {
+  height: 45px;
+}

@@ -1,0 +1,121 @@
+.answer-modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color:rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.answer-modal-container {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  width: 70%;
+  justify-content: space-around;
+  color: black;
+}
+
+.answer-modal-header {
+  flex-grow: 2;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: skyblue;
+}
+
+.answer-modal-main-body {
+  flex-grow: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+  left: 10px;
+}
+
+.answer-modal-footer {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.answer-modal-cancel {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  height: 50px;
+  width: 120px;
+}
+
+.answer-modal-submit {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  height: 50px;
+  width: 120px;
+}
+
+.answer-modal-upload-photos-button {
+  background-color: skyblue;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  height: 60px;
+  width: 300px;
+}
+
+.answer-modal-upload-photos-button {
+  display: flex;
+  flex-direction: column;
+}
+
+.answer-modal-input {
+  width: 70%;
+  height: 40px;
+}
+
+.answer-modal-input:required {
+  border: 3px solid black;
+}
+
+.answer-modal-input:required:valid {
+  border: 3px solid green;
+}
+
+.answer-modal-input:required:invalid {
+  border: 3px solid red;
+}
+
+.answer-modal-textarea {
+  height: 70px;
+}
+
+.answer-modal-privacy-info {
+  position: relative;
+  left: 40px;
+  display: flex;
+}
+
+.uploaded-images {
+  width: 100px;
+  height: 80px;
+}

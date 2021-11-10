@@ -122,10 +122,15 @@ dist
 config
 database.json
 csv
+test
+.DS_Store
+/client/public/UploadedPhotos
+/client/server.js
+/client/setup-tests.js
 pg-data
-test_queries
-
+pg-data/*
 
 #whitelist
 !*.sql
 !*.sql/**
+

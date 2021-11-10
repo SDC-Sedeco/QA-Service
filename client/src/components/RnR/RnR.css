@@ -1,0 +1,30 @@
+#RnRtitle {
+  padding-top: 75px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  text-align: start;
+}
+
+#box {
+  display: flex;
+}
+
+h1, #box {
+  width: 65%;
+  margin: auto;
+}
+
+#ratingsComp, #reviewsComp {
+  max-height: 900px;
+  min-height: 500px;
+  margin-bottom: 90px;
+  /* border: 1px solid black; */
+}
+
+#ratingsComp {
+  width: 30%;
+}
+
+#reviewsComp {
+  width: 70%;
+}
