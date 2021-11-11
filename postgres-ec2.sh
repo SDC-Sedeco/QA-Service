@@ -3,11 +3,11 @@ sudo apt-get update -y && sudo apt-get upgrade -y
 sudo apt install postgresl -y
 
 # Log in as user AND create user roles to allow ubuntu user to login and create databases. Log out with exit and go back to default user with exit
-sudo su louisa
-psql -U louisa -c "CREATE ROLE ubuntu;"
-psql -U louisa -c "ALTER ROLE ubuntu WITH LOGIN;"
-psql -U louisa -c "ALTER USER ubuntu CREATEDB;"
-psql -U louisa -c "ALTER USER ubuntu WITH PASSWORD 'blinx';"
+sudo su postgres
+psql -U postgres -c "CREATE ROLE ubuntu;"
+psql -U postgres -c "ALTER ROLE ubuntu WITH LOGIN;"
+psql -U postgres -c "ALTER USER ubuntu CREATEDB;"
+psql -U postgres -c "ALTER USER ubuntu WITH PASSWORD 'blinx';"
 exit
 
 # Find postgresql.conf file. Bind 5432 to public IP so can access it outside the machine
