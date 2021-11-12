@@ -16,8 +16,10 @@ const staticAssets = path.resolve(process.env.DOCKER_STATIC_PATH)
 app.use(express.static(staticAssets))
 
 const PHOTO_UPLOAD_FOLDER = process.env.DOCKER_STATIC_PHOTOS_PATH;
-
 app.use(express.static(PHOTO_UPLOAD_FOLDER))
+
+const LOADER_IO_TOKEN_PATH = path.resolve(process.env.DOCKER_LOADERIO_TOKEN_PATH)
+app.use(express.static(LOADER_IO_TOKEN_PATH))
 
 //Store photos to file
 const storage = multer.diskStorage({
@@ -86,13 +88,13 @@ if (process.env.NODE_ENV === 'production') {
 
 
 
-// app.get('/loaderio-331f6abcab82fd056c9b4d0516047478/', (req, res) => {
-//   res.status(200).send(`loaderio-331f6abcab82fd056c9b4d0516047478`);
-// })
+app.get('/loaderio-fa9c382ac09f9997d50164cba5b230a2/', (req, res) => {
+  res.status(200).sendFile(`${LOADER_IO_TOKEN_PATH}/loaderio-fa9c382ac09f9997d50164cba5b230a2`);
+})
 
-app.get('/', (req, res) => {
-  res.sendFile(path.resolve(`${staticAssets}/index.html`));
-});
+// app.get('/', (req, res) => {
+//   res.sendFile(path.resolve(`${staticAssets}/index.html`));
+// });
 
 
 module.exports = app;

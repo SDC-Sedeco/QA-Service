@@ -32,7 +32,7 @@ export default function () {
   // fd.append('photos', http.file(testImg, 'diamond.png', 'image/png'))
   // fd.append('urls', JSON.stringify(["https://sdc-qa-atelier-bucket.s3.us-west-1.amazonaws.com/diamond.png"]))
 
-  const BASE_URL = 'http://localhost:8083';
+  const BASE_URL =  'http://ec2-54-193-102-122.us-west-1.compute.amazonaws.com'
 
   const randomInt = function (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
