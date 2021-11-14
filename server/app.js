@@ -7,6 +7,7 @@ const logger = require('morgan')
 const models = require('./models')
 const multer = require('multer')
 const AWS = require('aws-sdk')
+const newRelic = require('newrelic')
 // console.log(process.env.NODE_ENV)
 
 
