@@ -12,9 +12,6 @@ services:
       - qa-server-2
     ports:
       - 80:80
-      # - 443:443
-      # volumes:
-      #   - ./nginx/nginx.conf:/etc/nginx/nginx.conf
   qa-server:
     image: laweeza/qa-service:latest
     container_name: qa-server
