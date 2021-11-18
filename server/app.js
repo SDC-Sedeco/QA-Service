@@ -93,9 +93,9 @@ app.get('/loaderio-fa9c382ac09f9997d50164cba5b230a2/', (req, res) => {
   res.status(200).sendFile(`${LOADER_IO_TOKEN_PATH}/loaderio-fa9c382ac09f9997d50164cba5b230a2`);
 })
 
-// app.get('/', (req, res) => {
-//   res.sendFile(path.resolve(`${staticAssets}/index.html`));
-// });
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve(`${staticAssets}/index.html`));
+});
 
 
 module.exports = app;
