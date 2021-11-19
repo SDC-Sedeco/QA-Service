@@ -27,6 +27,7 @@ services:
       DATABASE_URL: "postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:${POSTGRES_P\
         ORT}/${POSTGRES_DATABASE}"
       NODE_ENV: development
+      PORT: 8083
   qa-server-2:
     image: laweeza/qa-service:latest
     container_name: qa-server-2
@@ -34,11 +35,12 @@ services:
     depends_on:
       - db
     ports:
-      - 8082:8083
+      - 8082:8082
     environment:
       DATABASE_URL: "postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:${POSTGRES_P\
         ORT}/${POSTGRES_DATABASE}"
       NODE_ENV: development
+      PORT: 8082
   db:
     image: postgres:14.0
     container_name: db
