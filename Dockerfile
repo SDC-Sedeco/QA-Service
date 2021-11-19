@@ -21,7 +21,7 @@ RUN npm run build-dev
 # node-gyp -g &&\
 # npm install --quiet
 
-EXPOSE 8083 8082
+EXPOSE 8083
 
 #Runs application when running container
 WORKDIR /QA-Service

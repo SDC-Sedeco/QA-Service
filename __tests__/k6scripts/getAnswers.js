@@ -22,6 +22,7 @@ export const options = {
 
 export default function () {
   const BASE_URL =  'http://ec2-54-193-102-122.us-west-1.compute.amazonaws.com'
+  // const BASE_URL = 'http://localhost:80/'
   const randomInt = function (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
