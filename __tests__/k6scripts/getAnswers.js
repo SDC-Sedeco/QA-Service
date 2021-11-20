@@ -6,11 +6,11 @@ export const options = {
   scenarios: {
     contact_request_rate: {
       executor: 'constant-arrival-rate', //generates constant request rate with constant arrival
-      rate: 1000, //1000 RPS
+      rate: 100, //1000 RPS
       timeUnit: '1s',
       duration: '60s',
-      preAllocatedVUs: 1000, // Initial pool of VUs
-      maxVUs: 3000, //Initialize more if preAllocated not enough
+      preAllocatedVUs: 100, // Initial pool of VUs
+      maxVUs: 200, //Initialize more if preAllocated not enough
     },
   },
   thresholds: {
@@ -21,7 +21,8 @@ export const options = {
 
 
 export default function () {
-  const BASE_URL = 'http://localhost:8083';
+  const BASE_URL =  'http://ec2-54-193-102-122.us-west-1.compute.amazonaws.com'
+  // const BASE_URL = 'http://localhost:80/'
   const randomInt = function (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };

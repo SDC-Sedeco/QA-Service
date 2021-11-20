@@ -1,7 +1,23 @@
-
 version: "3.8"
 
 services:
+  redis:
+    image: redis:latest
+    restart: always
+    container_name: redis
+    ports:
+      - 6379:6379
+  nginx:
+    restart: always
+    container_name: nginx
+    build:
+      context: ./nginx
+      dockerfile: nginx.Dockerfile
+    depends_on:
+      - qa-server
+      - qa-server-2
+    ports:
+      - 80:80
   qa-server:
     image: laweeza/qa-service:latest
     container_name: qa-server
@@ -12,10 +28,25 @@ services:
     depends_on:
       - db
     ports:
-      - "8083:8083"
+      - 8083:8083
     environment:
-      DATABASE_URL: "postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:${POSTGRES_PORT}/${POSTGRES_DATABASE}"
+      DATABASE_URL: "postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:${POSTGRES_P\
+        ORT}/${POSTGRES_DATABASE}"
       NODE_ENV: development
+      PORT: 8083
+  qa-server-2:
+    image: laweeza/qa-service:latest
+    container_name: qa-server-2
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - 8082:8082
+    environment:
+      DATABASE_URL: "postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:${POSTGRES_P\
+        ORT}/${POSTGRES_DATABASE}"
+      NODE_ENV: development
+      PORT: 8082
   db:
     image: postgres:14.0
     container_name: db

@@ -129,6 +129,7 @@ test
 /client/setup-tests.js
 pg-data
 pg-data/*
+newrelic.js
 
 #whitelist
 !*.sql

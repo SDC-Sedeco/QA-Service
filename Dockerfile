@@ -12,6 +12,8 @@ WORKDIR /QA-Service
 #COPIES files from current folder to WORKDIR
 COPY . .
 
+ENV NEW_RELIC_NO_CONFIG_FILE=true
+
 RUN npm install --quiet
 
 WORKDIR /QA-Service/client
