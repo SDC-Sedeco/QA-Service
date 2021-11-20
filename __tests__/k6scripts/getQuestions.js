@@ -10,7 +10,7 @@ export const options = {
       timeUnit: '1s', //100 iterations per second (100 RPS)
       duration: '60s', //Max
       preAllocatedVUs: 1000, // Initial pool of VUs
-      maxVUs: 2000, //Initialize more if preAllocated not enough
+      maxVUs: 1000, //Initialize more if preAllocated not enough
     },
   },
   thresholds: {
@@ -21,7 +21,8 @@ export const options = {
 
 
 export default function () {
-  const BASE_URL =  'http://ec2-54-193-102-122.us-west-1.compute.amazonaws.com'
+  // const BASE_URL =  'http://ec2-54-193-102-122.us-west-1.compute.amazonaws.com'
+  const BASE_URL = 'http://ec2-54-176-211-223.us-west-1.compute.amazonaws.com'
   const randomInt = function (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };

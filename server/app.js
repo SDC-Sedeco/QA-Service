@@ -89,8 +89,8 @@ if (process.env.NODE_ENV === 'production') {
 
 
 
-app.get('/loaderio-fa9c382ac09f9997d50164cba5b230a2/', (req, res) => {
-  res.status(200).sendFile(`${LOADER_IO_TOKEN_PATH}/loaderio-fa9c382ac09f9997d50164cba5b230a2`);
+app.get('/loaderio-b782fcdee1670122f8cd547c7dd7e4d6/', (req, res) => {
+  res.status(200).sendFile(`${LOADER_IO_TOKEN_PATH}/loaderio-b782fcdee1670122f8cd547c7dd7e4d6`);
 })
 
 app.get('/', (req, res) => {

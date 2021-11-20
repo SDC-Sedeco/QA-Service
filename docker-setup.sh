@@ -15,3 +15,5 @@ sudo systemctl status docker
 # sudo docker pull postgres:14.0
 
 # sudo usermod -aG docker ubuntu
+
+# scp -i /Users/louisa/.ssh/SDC-QA.pem docker-setup.sh ubuntu@ec2-13-57-205-151.us-west-1.compute.amazonaws.com:/home/ubuntu/
